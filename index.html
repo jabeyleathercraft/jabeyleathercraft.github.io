@@ -383,6 +383,55 @@ function showCheckout() {
   );
 }
 </script>
+<section id="checkout" class="checkout">
+  <h2>Order / Checkout</h2>
 
+  <form onsubmit="sendOrder(event)">
+    <label>Full Name</label>
+    <input type="text" id="customerName" required>
+
+    <label>Phone Number</label>
+    <input type="tel" id="customerPhone" required>
+
+    <label>Delivery Address</label>
+    <textarea id="customerAddress" required></textarea>
+
+    <label>Product</label>
+    <input type="text" id="orderProduct" placeholder="What would you like to order?" required>
+
+    <label>Quantity</label>
+    <input type="number" id="orderQuantity" value="1" min="1" required>
+
+    <button type="submit" class="button">
+      SEND ORDER VIA WHATSAPP
+    </button>
+  </form>
+</section>
+
+<script>
+function sendOrder(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("customerName").value;
+  const phone = document.getElementById("customerPhone").value;
+  const address = document.getElementById("customerAddress").value;
+  const product = document.getElementById("orderProduct").value;
+  const quantity = document.getElementById("orderQuantity").value;
+
+  const message =
+    "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Address: " + address + "\n" +
+    "Product: " + product + "\n" +
+    "Quantity: " + quantity;
+
+  const whatsappURL =
+    "https://wa.me/9609878207?text=" +
+    encodeURIComponent(message);
+
+  window.location.href = whatsappURL;
+}
+</script>
 </body>
 </html>
