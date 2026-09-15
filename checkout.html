@@ -236,7 +236,53 @@ if (paymentSlip) {
     }
 
     slipFileName = result.fileName;
+const total = price * quantity;
 
+let paymentText = "";
+
+if (paymentMethod === "bml") {
+  paymentText = "BML Bank Transfer";
+}
+
+if (paymentMethod === "mib") {
+  paymentText = "MIB Bank Transfer";
+}
+
+if (paymentMethod === "cod") {
+  paymentText = "Cash on Delivery";
+}
+
+const orderData = {
+  order_number: orderNumber,
+  product: product,
+  price: price,
+  quantity: Number(quantity),
+  total: total,
+  customer_name: name,
+  customer_phone: phone,
+  delivery_address: address,
+  payment_method: paymentText,
+  payment_slip: slipFileName
+};
+
+const orderResponse = await fetch(
+  ORDERS_URL,
+  {
+    method: "POST",
+    headers: {
+      "apikey": SUPABASE_ANON_KEY,
+      "Authorization":
+        "Bearer " + SUPABASE_ANON_KEY,
+      "Content-Type": "application/json",
+      "Prefer": "return=minimal"
+    },
+    body: JSON.stringify(orderData)
+  }
+);
+
+if (!orderResponse.ok) {
+  throw new Error("Order could not be saved.");
+}
   } catch (error) {
 
     alert(
@@ -261,7 +307,7 @@ if ((paymentMethod === "bml" || paymentMethod === "mib") && !paymentSlip) {
   return;
 }
 
-      const total = price * quantity;
+      
 
       const message =
   "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
