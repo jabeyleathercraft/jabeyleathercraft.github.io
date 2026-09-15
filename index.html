@@ -65,15 +65,22 @@
             line-height: 1.6;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 25px;
-            background: #241811;
-            color: white;
-            padding: 14px 25px;
-            text-decoration: none;
-            border-radius: 4px;
-        }
+      .button {
+    display: inline-block;
+    margin-top: 25px;
+    background: #241811;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: #3a271c;
+    transform: translateY(-2px);
+}
 
         section {
             padding: 60px 20px;
@@ -132,14 +139,23 @@
             font-weight: bold;
         }
 
-        .product button {
-            width: 100%;
-            padding: 12px;
-            background: #241811;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+      .product button {
+    width: 100%;
+    padding: 12px;
+    background: #241811;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: Georgia, serif;
+    letter-spacing: 1px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.product button:hover {
+    background: #3a271c;
+    transform: translateY(-2px);
+}
 
         .about {
             background: #241811;
