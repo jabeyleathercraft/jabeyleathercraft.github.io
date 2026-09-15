@@ -383,30 +383,8 @@ function showCheckout() {
   );
 }
 </script>
-<section id="checkout" class="checkout">
-  <h2>Order / Checkout</h2>
 
-  <form onsubmit="sendOrder(event)">
-    <label>Full Name</label>
-    <input type="text" id="customerName" required>
 
-    <label>Phone Number</label>
-    <input type="tel" id="customerPhone" required>
-
-    <label>Delivery Address</label>
-    <textarea id="customerAddress" required></textarea>
-
-    <label>Product</label>
-    <input type="text" id="orderProduct" placeholder="What would you like to order?" required>
-
-    <label>Quantity</label>
-    <input type="number" id="orderQuantity" value="1" min="1" required>
-
-    <button type="submit" class="button">
-      SEND ORDER VIA WHATSAPP
-    </button>
-  </form>
-</section>
 
 <script>
 function sendOrder(event) {
