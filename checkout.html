@@ -264,13 +264,17 @@ if ((paymentMethod === "bml" || paymentMethod === "mib") && !paymentSlip) {
       const message =
   "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
   "Order Number: " + orderNumber + "\n" +
-        "Product: " + product + "\n" +
-        "Price: MVR " + price + "\n" +
-        "Quantity: " + quantity + "\n" +
-        "Total: MVR " + total + "\n\n" +
-        "Customer: " + name + "\n" +
-        "Phone: " + phone + "\n" +
-        "Address: " + address;
+  "Product: " + product + "\n" +
+  "Price: MVR " + price + "\n" +
+  "Quantity: " + quantity + "\n" +
+  "Total: MVR " + total + "\n\n" +
+  "Customer: " + name + "\n" +
+  "Phone: " + phone + "\n" +
+  "Address: " + address + "\n\n" +
+  "Payment Method: " + paymentText + "\n" +
+  (slipFileName
+    ? "Payment Slip: Uploaded\n"
+    : "Payment Slip: Not Required");
 
       const whatsapp =
         "https://wa.me/9609878207?text=" +
