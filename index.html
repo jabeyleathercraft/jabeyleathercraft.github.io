@@ -102,16 +102,18 @@
             border: 1px solid #d8c8b7;
         }
 
-        .product-image {
-            height: 220px;
-            background: #9b704d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            letter-spacing: 2px;
-            text-align: center;
-        }
+    .product-image {
+    height: 220px;
+    background: #9b704d;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
         .product h3 {
             margin-bottom: 5px;
