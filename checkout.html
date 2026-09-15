@@ -198,7 +198,49 @@ function showPaymentDetails() {
 
 const paymentSlip =
   document.getElementById("paymentSlip").files[0];
+let slipFileName = "";
 
+if (paymentSlip) {
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append("file", paymentSlip);
+
+    const response = await fetch(
+      UPLOAD_FUNCTION_URL,
+      {
+        method: "POST",
+        headers: {
+          "Authorization":
+            "Bearer " + SUPABASE_ANON_KEY,
+          "apikey":
+            SUPABASE_ANON_KEY
+        },
+        body: formData
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        result.error || "Upload failed."
+      );
+    }
+
+    slipFileName = result.fileName;
+
+  } catch (error) {
+
+    alert(
+      "Payment slip upload failed. Please try again."
+    );
+
+    return;
+  }
+}
 if (!name || !phone || !address) {
   alert("Please fill in all your details.");
   return;
