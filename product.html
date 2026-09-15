@@ -251,7 +251,38 @@ const products = {
 
 };
     let quantity = 1;
+const params = new URLSearchParams(window.location.search);
 
+const productName =
+  params.get("product") || "Classic Leather Wallet";
+
+const selectedProduct =
+  products[productName] || products["Classic Leather Wallet"];
+
+document.getElementById("productName").textContent =
+  productName;
+
+document.getElementById("productPrice").textContent =
+  "MVR " + selectedProduct.price;
+
+document.querySelector(".description").textContent =
+  selectedProduct.description;
+
+const gallery =
+  document.getElementById("productGallery");
+
+gallery.innerHTML = "";
+
+selectedProduct.photos.forEach(photo => {
+
+  const image = document.createElement("img");
+
+  image.src = photo;
+  image.alt = productName;
+
+  gallery.appendChild(image);
+
+});
     function changeQuantity(change) {
 
       quantity += change;
