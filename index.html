@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jabey Leather Craft</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #f5efe6;
+            color: #241811;
+        }
+
+        header {
+            background: #241811;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            color: #c9a77d;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        nav {
+            background: #3a271c;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px;
+            background: #d8c0a3;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin: 0 0 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            background: #241811;
+            color: white;
+            padding: 14px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title h2 {
+            font-size: 35px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 15px;
+            border: 1px solid #d8c8b7;
+        }
+
+        .product-image {
+            height: 220px;
+            background: #9b704d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .product h3 {
+            margin-bottom: 5px;
+        }
+
+        .price {
+            color: #765033;
+            font-weight: bold;
+        }
+
+        .product button {
+            width: 100%;
+            padding: 12px;
+            background: #241811;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .about {
+            background: #241811;
+            color: white;
+            max-width: none;
+            text-align: center;
+        }
+
+        .about div {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .about p {
+            line-height: 1.8;
+            color: #ddd0c3;
+        }
+
+        footer {
+            background: #17100c;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        @media (max-width: 800px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h2 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .products {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product-image {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>JABEY</h1>
+    <p>LEATHER CRAFT</p>
+</header>
+
+<nav>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#custom">Custom</a>
+</nav>
+
+<div class="hero">
+    <h2>Leather, Made Personal.</h2>
+
+    <p>
+        Handcrafted leather goods made with patience,
+        character and attention to detail.
+    </p>
+
+    <a href="#shop" class="button">SHOP COLLECTION</a>
+</div>
+
+<section id="shop">
+
+    <div class="title">
+        <h2>Our Collection</h2>
+        <p>Handcrafted leather goods from Jabey Leather Craft.</p>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <div class="product-image">
+                WALLET
+            </div>
+
+            <h3>Classic Leather Wallet</h3>
+
+            <p class="price">MVR 650</p>
+
+            <button onclick="addToCart('Classic Leather Wallet')">
+                ADD TO CART
+            </button>
+        </div>
+
+
+        <div class="product">
+            <div class="product-image">
+                CARD HOLDER
+            </div>
+
+            <h3>Minimal Card Holder</h3>
+
+            <p class="price">MVR 350</p>
+
+            <button onclick="addToCart('Minimal Card Holder')">
+                ADD TO CART
+            </button>
+        </div>
+
+
+        <div class="product">
+            <div class="product-image">
+                KEY HOLDER
+            </div>
+
+            <h3>Leather Key Holder</h3>
+
+            <p class="price">MVR 250</p>
+
+            <button onclick="addToCart('Leather Key Holder')">
+                ADD TO CART
+            </button>
+        </div>
+
+
+        <div class="product">
+            <div class="product-image">
+                CUSTOM
+            </div>
+
+            <h3>Custom Leather Wallet</h3>
+
+            <p class="price">MVR 850</p>
+
+            <button onclick="addToCart('Custom Leather Wallet')">
+                ADD TO CART
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+    <div>
+
+        <h2>Made By Hand</h2>
+
+        <p>
+            Every Jabey Leather Craft piece is made by hand,
+            from cutting and stitching to the final finishing touches.
+        </p>
+
+        <p>
+            Our goal is simple — create leather goods that look
+            better with age and become part of your everyday life.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="custom">
+
+    <div class="title">
+
+        <h2>Custom Orders</h2>
+
+        <p>
+            Want your name, initials or a special design?
+            We can create something specifically for you.
+        </p>
+
+        <a
+            class="button"
+            href="https://wa.me/9600000000"
+            target="_blank">
+            CONTACT US
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>JABEY LEATHER CRAFT</h3>
+
+    <p>Handcrafted in the Maldives 🇲🇻</p>
+
+    <p>© 2026 Jabey Leather Craft</p>
+
+</footer>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(product) {
+
+    cart.push(product);
+
+    alert(
+        product +
+        " has been added to your cart!"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
