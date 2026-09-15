@@ -142,7 +142,8 @@ const UPLOAD_FUNCTION_URL =
 
     const product = params.get("product") || "Your Product";
     const price = Number(params.get("price")) || 0;
-
+const color = params.get("color") || "";
+const customisation = params.get("customisation") || "";
     document.getElementById("productName").textContent = product;
     document.getElementById("productPrice").textContent = price;
 function showPaymentDetails() {
