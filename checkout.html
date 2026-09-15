@@ -83,7 +83,7 @@
   <strong>Customisation:</strong> <span id="productCustomisation"></span>
 </p>
     <label>Quantity</label>
-    <input type="number" id="quantity" value="1" min="1">
+  <input type="number" id="quantity" min="1">
 
     <label>Full Name</label>
     <input type="text" id="customerName" required>
@@ -150,8 +150,12 @@ const UPLOAD_FUNCTION_URL =
     const price = Number(params.get("price")) || 0;
 const color = params.get("color") || "";
 const customisation = params.get("customisation") || "";
+    const quantityFromProduct =
+  Number(params.get("quantity")) || 1;
     document.getElementById("productName").textContent = product;
     document.getElementById("productPrice").textContent = price;
+    document.getElementById("quantity").value =
+  quantityFromProduct;
     if (color) {
   document.getElementById("productColor").textContent = color;
   document.getElementById("colorDisplay").style.display = "block";
