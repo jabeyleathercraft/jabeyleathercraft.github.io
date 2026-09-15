@@ -75,7 +75,13 @@
 
     <p><strong>Product:</strong> <span id="productName">Your Product</span></p>
     <p><strong>Price:</strong> MVR <span id="productPrice">0</span></p>
+<p id="colorDisplay" style="display:none;">
+  <strong>Color:</strong> <span id="productColor"></span>
+</p>
 
+<p id="customisationDisplay" style="display:none;">
+  <strong>Customisation:</strong> <span id="productCustomisation"></span>
+</p>
     <label>Quantity</label>
     <input type="number" id="quantity" value="1" min="1">
 
@@ -146,6 +152,15 @@ const color = params.get("color") || "";
 const customisation = params.get("customisation") || "";
     document.getElementById("productName").textContent = product;
     document.getElementById("productPrice").textContent = price;
+    if (color) {
+  document.getElementById("productColor").textContent = color;
+  document.getElementById("colorDisplay").style.display = "block";
+}
+
+if (customisation) {
+  document.getElementById("productCustomisation").textContent = customisation;
+  document.getElementById("customisationDisplay").style.display = "block";
+}
 function showPaymentDetails() {
 
   const paymentMethod =
