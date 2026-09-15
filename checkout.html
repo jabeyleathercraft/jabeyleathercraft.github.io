@@ -198,6 +198,9 @@ function showPaymentDetails() {
 
 const paymentSlip =
   document.getElementById("paymentSlip").files[0];
+      const orderNumber =
+  "JLC-" +
+  Date.now().toString().slice(-8);
 let slipFileName = "";
 
 if (paymentSlip) {
@@ -259,7 +262,8 @@ if ((paymentMethod === "bml" || paymentMethod === "mib") && !paymentSlip) {
       const total = price * quantity;
 
       const message =
-        "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
+  "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
+  "Order Number: " + orderNumber + "\n" +
         "Product: " + product + "\n" +
         "Price: MVR " + price + "\n" +
         "Quantity: " + quantity + "\n" +
