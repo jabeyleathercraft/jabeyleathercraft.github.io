@@ -86,18 +86,56 @@
     <input type="tel" id="customerPhone" required>
 
     <label>Delivery Address</label>
-    <textarea id="customerAddress" required></textarea>
+<textarea id="customerAddress" required></textarea>
 
-    <button class="buy-button" onclick="placeOrder()">
-      BUY NOW
-    </button>
+<label>Payment Method</label>
+
+<select id="paymentMethod" onchange="showPaymentDetails()">
+  <option value="">Select Payment Method</option>
+  <option value="bml">BML Bank Transfer</option>
+  <option value="mib">MIB Bank Transfer</option>
+  <option value="cod">Cash on Delivery</option>
+</select>
+
+<div id="bankDetails" style="display:none; margin-top:20px; padding:15px; background:#f5f5f5; border-radius:8px;">
+
+  <p><strong>Bank Transfer Details</strong></p>
+
+  <p id="bmlDetails" style="display:none;">
+    <strong>BML</strong><br>
+    Account Name: Jazlaan Mohamed<br>
+    Account Number: 7730000298250
+  </p>
+
+  <p id="mibDetails" style="display:none;">
+    <strong>MIB</strong><br>
+    Account Name: Jazlaan Mohamed<br>
+    Account Number: 90403101000351000
+  </p>
+
+  <label>Upload Payment Slip</label>
+  <input type="file" id="paymentSlip" accept="image/*,.pdf">
+
+</div>
+
+<div id="codDetails" style="display:none; margin-top:20px; padding:15px; background:#f5f5f5; border-radius:8px;">
+  <strong>Cash on Delivery</strong>
+  <p>You can pay when your order is delivered.</p>
+</div>
+
+<button class="buy-button" onclick="placeOrder()">
+  PLACE ORDER
+</button>
 
     <a href="index.html" class="back">← Back to Shop</a>
 
   </div>
 
   <script>
-
+const SUPABASE_URL = "https://gdgamwhbhsfhotkyuqpm.supabase.co";
+const SUPABASE_ANON_KEY = "PASTE_YOUR_ANON_PUBLIC_KEY_HERE";
+const UPLOAD_FUNCTION_URL =
+  SUPABASE_URL + "/functions/v1/upload-payment-slip";
     const params = new URLSearchParams(window.location.search);
 
     const product = params.get("product") || "Your Product";
@@ -105,7 +143,42 @@
 
     document.getElementById("productName").textContent = product;
     document.getElementById("productPrice").textContent = price;
+function showPaymentDetails() {
 
+  const paymentMethod =
+    document.getElementById("paymentMethod").value;
+
+  const bankDetails =
+    document.getElementById("bankDetails");
+
+  const bmlDetails =
+    document.getElementById("bmlDetails");
+
+  const mibDetails =
+    document.getElementById("mibDetails");
+
+  const codDetails =
+    document.getElementById("codDetails");
+
+  bankDetails.style.display = "none";
+  bmlDetails.style.display = "none";
+  mibDetails.style.display = "none";
+  codDetails.style.display = "none";
+
+  if (paymentMethod === "bml") {
+    bankDetails.style.display = "block";
+    bmlDetails.style.display = "block";
+  }
+
+  if (paymentMethod === "mib") {
+    bankDetails.style.display = "block";
+    mibDetails.style.display = "block";
+  }
+
+  if (paymentMethod === "cod") {
+    codDetails.style.display = "block";
+  }
+}
     function placeOrder() {
 
       const quantity =
@@ -120,10 +193,26 @@
       const address =
         document.getElementById("customerAddress").value;
 
-      if (!name || !phone || !address) {
-        alert("Please fill in all your details.");
-        return;
-      }
+      const paymentMethod =
+  document.getElementById("paymentMethod").value;
+
+const paymentSlip =
+  document.getElementById("paymentSlip").files[0];
+
+if (!name || !phone || !address) {
+  alert("Please fill in all your details.");
+  return;
+}
+
+if (!paymentMethod) {
+  alert("Please select a payment method.");
+  return;
+}
+
+if ((paymentMethod === "bml" || paymentMethod === "mib") && !paymentSlip) {
+  alert("Please upload your payment slip.");
+  return;
+}
 
       const total = price * quantity;
 
