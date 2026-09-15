@@ -421,12 +421,10 @@ const paymentSlip =
     "https://wa.me/9609878207?text=" +
     encodeURIComponent(message);
 
-  window.location.href = whatsapp;
-}
-window.addEventListener("pageshow", function () {
   document.getElementById("loadingOverlay").style.display = "none";
-});
-  </script>
+window.location.href = whatsapp;
+}
+</script>
 
 </body>
 </html>
