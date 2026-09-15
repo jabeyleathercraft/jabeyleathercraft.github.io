@@ -198,8 +198,11 @@ function showPaymentDetails() {
   const paymentMethod =
     document.getElementById("paymentMethod").value;
 
-  const paymentSlip =
-    document.getElementById("paymentSlip").files[0];
+  const paymentSlipInput =
+  document.getElementById("paymentSlip");
+
+const paymentSlip =
+  paymentSlipInput ? paymentSlipInput.files[0] : null;
 
   if (!name || !phone || !address) {
     alert("Please fill in all your details.");
