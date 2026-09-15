@@ -96,11 +96,19 @@
             gap: 20px;
         }
 
-        .product {
-            background: white;
-            padding: 15px;
-            border: 1px solid #d8c8b7;
-        }
+      .product {
+    background: #fffdf9;
+    padding: 15px;
+    border: 1px solid #d8c8b7;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(36, 24, 17, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(36, 24, 17, 0.14);
+}
 
     .product-image {
     height: 220px;
