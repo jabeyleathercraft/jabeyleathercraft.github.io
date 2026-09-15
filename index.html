@@ -323,7 +323,7 @@
 
         <a
             class="button"
-            href="https://wa.me/9600000000"
+            <a href="https://wa.me/9609878207" target="_blank">
             target="_blank">
             CONTACT US
         </a>
@@ -358,7 +358,35 @@ function addToCart(product) {
     );
 
 }
+let cart = [];
 
+function addToCart(product, price) {
+  cart.push({ product, price });
+  alert(product + " added to your order!");
+  showCheckout();
+}
+
+function showCheckout() {
+  let message = "YOUR ORDER\n\n";
+
+  cart.forEach((item, index) => {
+    message += (index + 1) + ". " + item.product + " - MVR " + item.price + "\n";
+  });
+
+  let total = cart.reduce((sum, item) => sum + item.price, 0);
+
+  message += "\nTotal: MVR " + total;
+  message += "\n\nName: ";
+  message += "\nPhone: ";
+  message += "\nAddress: ";
+
+  let whatsappMessage = encodeURIComponent(message);
+
+  window.open(
+    "https://wa.me/9609878207?text=" + whatsappMessage,
+    "_blank"
+  );
+}
 </script>
 
 </body>
