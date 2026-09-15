@@ -235,8 +235,8 @@ if (paymentSlip) {
   } catch (error) {
 
     alert(
-      "Payment slip upload failed. Please try again."
-    );
+  "UPLOAD ERROR: " + error.message
+);
 
     return;
   }
