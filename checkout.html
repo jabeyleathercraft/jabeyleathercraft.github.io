@@ -64,11 +64,53 @@
       margin-top: 20px;
       color: #222;
     }
+    #loadingOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(36, 24, 17, 0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingBox {
+    text-align: center;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.loadingRing {
+    width: 42px;
+    height: 42px;
+    border: 3px solid rgba(201, 167, 125, 0.3);
+    border-top: 3px solid #c9a77d;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto 20px;
+}
+
+.loadingBox p {
+    margin: 0;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
   </style>
 </head>
 
 <body>
-
+<div id="loadingOverlay">
+    <div class="loadingBox">
+        <div class="loadingRing"></div>
+        <p>Preparing your order...</p>
+    </div>
+</div>
   <div class="checkout-box">
 
     <h1>Checkout</h1>
@@ -228,7 +270,7 @@ const paymentSlip =
     alert("Please fill in all your details.");
     return;
   }
-
+  document.getElementById("loadingOverlay").style.display = "flex";
   if (!paymentMethod) {
     alert("Please select a payment method.");
     return;
