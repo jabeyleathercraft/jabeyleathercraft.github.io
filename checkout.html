@@ -423,7 +423,9 @@ const paymentSlip =
 
   window.location.href = whatsapp;
 }
-
+window.addEventListener("pageshow", function () {
+  document.getElementById("loadingOverlay").style.display = "none";
+});
   </script>
 
 </body>
