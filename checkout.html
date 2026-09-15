@@ -183,153 +183,176 @@ function showPaymentDetails() {
 }
     async function placeOrder() {
 
-      const quantity =
-        document.getElementById("quantity").value;
+  const quantity =
+    document.getElementById("quantity").value;
 
-      const name =
-        document.getElementById("customerName").value;
+  const name =
+    document.getElementById("customerName").value;
 
-      const phone =
-        document.getElementById("customerPhone").value;
+  const phone =
+    document.getElementById("customerPhone").value;
 
-      const address =
-        document.getElementById("customerAddress").value;
+  const address =
+    document.getElementById("customerAddress").value;
 
-      const paymentMethod =
-  document.getElementById("paymentMethod").value;
+  const paymentMethod =
+    document.getElementById("paymentMethod").value;
 
-const paymentSlip =
-  document.getElementById("paymentSlip").files[0];
-      const orderNumber =
-  "JLC-" +
-  Date.now().toString().slice(-8);
-let slipFileName = "";
+  const paymentSlip =
+    document.getElementById("paymentSlip").files[0];
 
-if (paymentSlip) {
+  if (!name || !phone || !address) {
+    alert("Please fill in all your details.");
+    return;
+  }
+
+  if (!paymentMethod) {
+    alert("Please select a payment method.");
+    return;
+  }
+
+  if (
+    (paymentMethod === "bml" || paymentMethod === "mib")
+    && !paymentSlip
+  ) {
+    alert("Please upload your payment slip.");
+    return;
+  }
+
+  const orderNumber =
+    "JLC-" +
+    Date.now().toString().slice(-8);
+
+  const total = price * quantity;
+
+  let paymentText = "";
+
+  if (paymentMethod === "bml") {
+    paymentText = "BML Bank Transfer";
+  }
+
+  if (paymentMethod === "mib") {
+    paymentText = "MIB Bank Transfer";
+  }
+
+  if (paymentMethod === "cod") {
+    paymentText = "Cash on Delivery";
+  }
+
+  let slipFileName = "";
+
+  if (paymentSlip) {
+
+    try {
+
+      const formData = new FormData();
+
+      formData.append("file", paymentSlip);
+
+      const response = await fetch(
+        UPLOAD_FUNCTION_URL,
+        {
+          method: "POST",
+          headers: {
+            "Authorization":
+              "Bearer " + SUPABASE_ANON_KEY,
+            "apikey":
+              SUPABASE_ANON_KEY
+          },
+          body: formData
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.error || "Upload failed."
+        );
+      }
+
+      slipFileName = result.fileName;
+
+    } catch (error) {
+
+      alert(
+        "UPLOAD ERROR: " + error.message
+      );
+
+      return;
+    }
+  }
+
+  const orderData = {
+    order_number: orderNumber,
+    product: product,
+    price: price,
+    quantity: Number(quantity),
+    total: total,
+    customer_name: name,
+    customer_phone: phone,
+    delivery_address: address,
+    payment_method: paymentText,
+    payment_slip: slipFileName
+  };
 
   try {
 
-    const formData = new FormData();
-
-    formData.append("file", paymentSlip);
-
-    const response = await fetch(
-      UPLOAD_FUNCTION_URL,
+    const orderResponse = await fetch(
+      ORDERS_URL,
       {
         method: "POST",
         headers: {
+          "apikey": SUPABASE_ANON_KEY,
           "Authorization":
             "Bearer " + SUPABASE_ANON_KEY,
-          "apikey":
-            SUPABASE_ANON_KEY
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal"
         },
-        body: formData
+        body: JSON.stringify(orderData)
       }
     );
 
-    const result = await response.json();
+    if (!orderResponse.ok) {
 
-    if (!response.ok) {
+      const errorText =
+        await orderResponse.text();
+
       throw new Error(
-        result.error || "Upload failed."
+        errorText || "Order could not be saved."
       );
     }
 
-    slipFileName = result.fileName;
-const total = price * quantity;
-
-let paymentText = "";
-
-if (paymentMethod === "bml") {
-  paymentText = "BML Bank Transfer";
-}
-
-if (paymentMethod === "mib") {
-  paymentText = "MIB Bank Transfer";
-}
-
-if (paymentMethod === "cod") {
-  paymentText = "Cash on Delivery";
-}
-
-const orderData = {
-  order_number: orderNumber,
-  product: product,
-  price: price,
-  quantity: Number(quantity),
-  total: total,
-  customer_name: name,
-  customer_phone: phone,
-  delivery_address: address,
-  payment_method: paymentText,
-  payment_slip: slipFileName
-};
-
-const orderResponse = await fetch(
-  ORDERS_URL,
-  {
-    method: "POST",
-    headers: {
-      "apikey": SUPABASE_ANON_KEY,
-      "Authorization":
-        "Bearer " + SUPABASE_ANON_KEY,
-      "Content-Type": "application/json",
-      "Prefer": "return=minimal"
-    },
-    body: JSON.stringify(orderData)
-  }
-);
-
-if (!orderResponse.ok) {
-  throw new Error("Order could not be saved.");
-}
   } catch (error) {
 
     alert(
-  "UPLOAD ERROR: " + error.message
-);
+      "ORDER ERROR: " + error.message
+    );
 
     return;
   }
+
+  const message =
+    "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
+    "Order Number: " + orderNumber + "\n" +
+    "Product: " + product + "\n" +
+    "Price: MVR " + price + "\n" +
+    "Quantity: " + quantity + "\n" +
+    "Total: MVR " + total + "\n\n" +
+    "Customer: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Address: " + address + "\n\n" +
+    "Payment Method: " + paymentText + "\n" +
+    (slipFileName
+      ? "Payment Slip: Uploaded\n"
+      : "Payment Slip: Not Required");
+
+  const whatsapp =
+    "https://wa.me/9609878207?text=" +
+    encodeURIComponent(message);
+
+  window.location.href = whatsapp;
 }
-if (!name || !phone || !address) {
-  alert("Please fill in all your details.");
-  return;
-}
-
-if (!paymentMethod) {
-  alert("Please select a payment method.");
-  return;
-}
-
-if ((paymentMethod === "bml" || paymentMethod === "mib") && !paymentSlip) {
-  alert("Please upload your payment slip.");
-  return;
-}
-
-      
-
-      const message =
-  "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
-  "Order Number: " + orderNumber + "\n" +
-  "Product: " + product + "\n" +
-  "Price: MVR " + price + "\n" +
-  "Quantity: " + quantity + "\n" +
-  "Total: MVR " + total + "\n\n" +
-  "Customer: " + name + "\n" +
-  "Phone: " + phone + "\n" +
-  "Address: " + address + "\n\n" +
-  "Payment Method: " + paymentText + "\n" +
-  (slipFileName
-    ? "Payment Slip: Uploaded\n"
-    : "Payment Slip: Not Required");
-
-      const whatsapp =
-        "https://wa.me/9609878207?text=" +
-        encodeURIComponent(message);
-
-      window.location.href = whatsapp;
-    }
 
   </script>
 
