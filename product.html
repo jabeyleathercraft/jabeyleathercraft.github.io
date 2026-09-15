@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product - Jabey Leather Craft</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f5f2;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 15px;
+      background: #111;
+      color: white;
+    }
+
+    .logo {
+      width: 120px;
+      max-width: 60%;
+      height: auto;
+    }
+
+    .product-page {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .product-photo {
+      width: 100%;
+      height: 350px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      font-size: 24px;
+      color: #666;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    select,
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      background: white;
+    }
+
+    textarea {
+      height: 90px;
+      resize: vertical;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .quantity button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: #111;
+      color: white;
+      font-size: 20px;
+      border-radius: 5px;
+    }
+
+    .quantity span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .buy-button {
+      width: 100%;
+      padding: 16px;
+      margin-top: 30px;
+      background: #111;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #111;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img
+      src="logo.jpg.png"
+      alt="Jabey Leather Craft"
+      class="logo"
+    >
+  </header>
+
+  <div class="product-page">
+
+    <div class="product-photo">
+      PRODUCT PHOTO
+    </div>
+
+    <h1 id="productName">
+      Classic Leather Wallet
+    </h1>
+
+    <div class="price" id="productPrice">
+      MVR 650
+    </div>
+
+    <div class="description">
+      Handcrafted leather wallet made with care and attention
+      to detail. A simple, durable and timeless everyday wallet.
+    </div>
+
+    <label>Quantity</label>
+
+    <div class="quantity">
+      <button onclick="changeQuantity(-1)">−</button>
+
+      <span id="quantity">1</span>
+
+      <button onclick="changeQuantity(1)">+</button>
+    </div>
+
+    <label for="color">Choose Color</label>
+
+    <select id="color">
+      <option value="">Select a color</option>
+      <option value="Black">Black</option>
+      <option value="Brown">Brown</option>
+      <option value="Dark Brown">Dark Brown</option>
+      <option value="Tan">Tan</option>
+    </select>
+
+    <label for="customisation">
+      Customisation (Optional)
+    </label>
+
+    <textarea
+      id="customisation"
+      placeholder="Enter a name or initials"
+    ></textarea>
+
+    <button
+      class="buy-button"
+      onclick="buyNow()">
+      BUY NOW
+    </button>
+
+    <a href="index.html" class="back">
+      ← Back to Shop
+    </a>
+
+  </div>
+
+  <script>
+
+    let quantity = 1;
+
+    function changeQuantity(change) {
+
+      quantity += change;
+
+      if (quantity < 1) {
+        quantity = 1;
+      }
+
+      document.getElementById("quantity").textContent =
+        quantity;
+    }
+
+    function buyNow() {
+
+      const color =
+        document.getElementById("color").value;
+
+      const customisation =
+        document.getElementById("customisation").value;
+
+      if (!color) {
+        alert("Please select a color.");
+        return;
+      }
+
+      const product =
+        document.getElementById("productName").textContent;
+
+      const price =
+        document.getElementById("productPrice")
+          .textContent
+          .replace("MVR ", "");
+
+      const url =
+        "checkout.html" +
+        "?product=" + encodeURIComponent(product) +
+        "&price=" + encodeURIComponent(price) +
+        "&quantity=" + quantity +
+        "&color=" + encodeURIComponent(color) +
+        "&customisation=" +
+        encodeURIComponent(customisation);
+
+      window.location.href = url;
+    }
+
+  </script>
+
+</body>
+</html>
