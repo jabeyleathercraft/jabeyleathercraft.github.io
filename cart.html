@@ -1,278 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cart - Jabey Leather Craft</title>
+    <title>Your Cart - Jabey Leather Craft</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f5f2;
-      color: #222;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #f5efe6;
+            color: #241811;
+        }
 
-    header {
-      text-align: center;
-      padding: 25px 15px;
-      background: #111;
-      color: white;
-    }
+        header {
+            background: #241811;
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
 
-    .logo {
-      width: 120px;
-      max-width: 60%;
-      height: auto;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 25px;
+            letter-spacing: 3px;
+        }
 
-    h1 {
-      margin: 10px 0 0;
-      font-size: 24px;
-    }
+        header p {
+            margin: 7px 0 0;
+            color: #c9a77d;
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
 
-    .cart-container {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+        nav {
+            background: #3a271c;
+            padding: 15px 12px;
+            text-align: center;
+        }
 
-    .cart-item {
-      background: white;
-      padding: 18px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-    .item-info {
-      flex: 1;
-    }
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 50px 20px;
+        }
 
-    .item-name {
-      font-weight: bold;
-      font-size: 18px;
-    }
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
 
-    .item-price {
-      margin-top: 5px;
-      color: #666;
-    }
+        .title h2 {
+            font-size: 32px;
+            margin: 0 0 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-    .quantity-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .title p {
+            color: #765033;
+        }
 
-    .quantity-controls button {
-      width: 32px;
-      height: 32px;
-      border: none;
-      background: #111;
-      color: white;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+        .cart-item {
+            background: #fffdf9;
+            border: 1px solid #d8c8b7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(36, 24, 17, 0.08);
+        }
 
-    .remove-button {
-      background: none;
-      border: none;
-      color: #b00020;
-      cursor: pointer;
-    }
+        .cart-item h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
 
-    .cart-total {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      text-align: right;
-    }
+        .cart-item p {
+            margin: 5px 0;
+            color: #765033;
+            font-size: 14px;
+        }
 
-    .checkout-button {
-      display: block;
-      width: 100%;
-      margin-top: 15px;
-      padding: 15px;
-      background: #111;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
 
-    .empty-cart {
-      text-align: center;
-      padding: 50px 20px;
-      background: white;
-      border-radius: 8px;
-    }
+        .quantity-controls button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #241811;
+            background: transparent;
+            color: #241811;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 18px;
+        }
 
-    .continue-shopping {
-      display: inline-block;
-      margin-top: 15px;
-      color: #111;
-    }
-  </style>
+        .quantity-controls span {
+            min-width: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .remove-button {
+            margin-top: 12px;
+            padding: 8px 14px;
+            background: transparent;
+            color: #8b3a2f;
+            border: 1px solid #8b3a2f;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Georgia, serif;
+        }
+
+        .remove-button:hover {
+            background: #8b3a2f;
+            color: white;
+        }
+
+        .cart-summary {
+            background: #241811;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .cart-summary h3 {
+            margin: 0 0 15px;
+            letter-spacing: 2px;
+        }
+
+        .total {
+            font-size: 22px;
+            color: #c9a77d;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            background: #c9a77d;
+            color: #241811;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .checkout-button:hover {
+            background: #e0c49f;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 50px 20px;
+            color: #765033;
+        }
+
+        .shop-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 22px;
+            background: #241811;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: #17100c;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 6px 0;
+            color: #c9a77d;
+            font-size: 13px;
+        }
+
+        @media (max-width: 500px) {
+            main {
+                padding: 40px 15px;
+            }
+
+            .title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header>
-    <img src="logo.jpg.png" alt="Jabey Leather Craft" class="logo">
-    <h1>Your Cart</h1>
-  </header>
+<header>
+    <h1>JABEY LEATHER CRAFT</h1>
+    <p>YOUR CART</p>
+</header>
 
-  <div class="cart-container">
+<nav>
+    <a href="index.html">Shop</a>
+    <a href="cart.html">Cart</a>
+</nav>
 
-    <div id="cartItems"></div>
+<main>
 
-    <div id="cartTotal"></div>
+    <div class="title">
+        <h2>Your Cart</h2>
+        <p>Review your handcrafted leather goods.</p>
+    </div>
 
-  </div>
+    <div id="cartContainer"></div>
 
-  <script>
+</main>
 
-    function getCart() {
-      return JSON.parse(
-        localStorage.getItem("jabeyCart")
-      ) || [];
-    }
+<footer>
+    <p>Handcrafted in the Maldives 🇲🇻</p>
+    <p>© 2026 Jabey Leather Craft</p>
+</footer>
 
-    function saveCart(cart) {
-      localStorage.setItem(
-        "jabeyCart",
-        JSON.stringify(cart)
-      );
-    }
 
-    function displayCart() {
+<script>
 
-      const cart = getCart();
+function loadCart() {
 
-      const cartItems =
-        document.getElementById("cartItems");
+    const cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
 
-      const cartTotal =
-        document.getElementById("cartTotal");
+    const container =
+        document.getElementById("cartContainer");
 
-      if (cart.length === 0) {
+    container.innerHTML = "";
 
-        cartItems.innerHTML = `
-          <div class="empty-cart">
-            <h2>Your cart is empty</h2>
-            <p>Add some leather goods to your cart.</p>
-            <a href="index.html" class="continue-shopping">
-              Continue Shopping
-            </a>
-          </div>
+    if (cart.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty-cart">
+                <h3>Your cart is empty.</h3>
+                <p>Add something from our collection.</p>
+                <a href="index.html" class="shop-button">
+                    SHOP COLLECTION
+                </a>
+            </div>
         `;
 
-        cartTotal.innerHTML = "";
-
         return;
-      }
+    }
 
-      let total = 0;
+    let total = 0;
 
-      cartItems.innerHTML = "";
-
-      cart.forEach((item, index) => {
+    cart.forEach(function(item, index) {
 
         const itemTotal =
-          item.price * item.quantity;
+            item.price * item.quantity;
 
         total += itemTotal;
 
-        cartItems.innerHTML += `
-          <div class="cart-item">
+        const div =
+            document.createElement("div");
 
-            <div class="item-info">
-              <div class="item-name">
-                ${item.name}
-              </div>
+        div.className = "cart-item";
 
-              <div class="item-price">
-                MVR ${item.price}
-              </div>
-            </div>
+        div.innerHTML = `
+            <h3>${item.product}</h3>
+
+            <p>Price: MVR ${item.price}</p>
+
+            <p>Color: ${item.color}</p>
+
+            <p>
+                Customisation:
+                ${item.customisation || "None"}
+            </p>
+
+            <p>
+                Item Total:
+                <strong>MVR ${itemTotal}</strong>
+            </p>
 
             <div class="quantity-controls">
 
-              <button onclick="changeQuantity(${index}, -1)">
-                -
-              </button>
+                <button onclick="changeQuantity(${index}, -1)">
+                    −
+                </button>
 
-              <span>
-                ${item.quantity}
-              </span>
+                <span>${item.quantity}</span>
 
-              <button onclick="changeQuantity(${index}, 1)">
-                +
-              </button>
+                <button onclick="changeQuantity(${index}, 1)">
+                    +
+                </button>
 
             </div>
 
             <button
-              class="remove-button"
-              onclick="removeItem(${index})">
-              Remove
+                class="remove-button"
+                onclick="removeItem(${index})">
+                REMOVE
             </button>
-
-          </div>
         `;
-      });
 
-      cartTotal.innerHTML = `
-        <div class="cart-total">
-          Total: MVR ${total}
+        container.appendChild(div);
+
+    });
+
+    const summary =
+        document.createElement("div");
+
+    summary.className = "cart-summary";
+
+    summary.innerHTML = `
+        <h3>ORDER SUMMARY</h3>
+
+        <div class="total">
+            Total: MVR ${total}
         </div>
 
-        <a
-          href="checkout.html"
-          class="checkout-button">
-          CHECKOUT
+        <a href="checkout.html" class="checkout-button">
+            PROCEED TO CHECKOUT
         </a>
-      `;
+    `;
+
+    container.appendChild(summary);
+}
+
+
+function changeQuantity(index, change) {
+
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart[index].quantity += change;
+
+    if (cart[index].quantity < 1) {
+        cart[index].quantity = 1;
     }
 
-    function changeQuantity(index, change) {
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
 
-      const cart = getCart();
+    loadCart();
+}
 
-      cart[index].quantity += change;
 
-      if (cart[index].quantity <= 0) {
-        cart.splice(index, 1);
-      }
+function removeItem(index) {
 
-      saveCart(cart);
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
 
-      displayCart();
-    }
+    cart.splice(index, 1);
 
-    function removeItem(index) {
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
 
-      const cart = getCart();
+    loadCart();
+}
 
-      cart.splice(index, 1);
 
-      saveCart(cart);
+loadCart();
 
-      displayCart();
-    }
-
-    displayCart();
-
-  </script>
+</script>
 
 </body>
 </html>
