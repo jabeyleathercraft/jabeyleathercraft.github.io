@@ -211,7 +211,7 @@ header h2 {
       id="customisation"
       placeholder="Enter a name or initials"
     ></textarea>
-<button class="cart-button" onclick="alert('BUTTON WORKS')">ADD TO CART</button>
+<button class="cart-button" onclick="addToCart()">ADD TO CART</button>
     <button
       class="buy-button"
       onclick="buyNow()">
@@ -357,10 +357,9 @@ function addToCart() {
 
   const price =
     Number(
-      document
-        .getElementById("productPrice")
-        .textContent
+      document.getElementById("productPrice").textContent
         .replace("MVR ", "")
+        .trim()
     );
 
   const color =
@@ -374,23 +373,18 @@ function addToCart() {
     return;
   }
 
-  const cartItem = {
+  const cart =
+    JSON.parse(localStorage.getItem("cart") || "[]");
+
+  cart.push({
     product: product,
     price: price,
     quantity: quantity,
     color: color,
     customisation: customisation
-  };
+  });
 
-  let cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
-
-  cart.push(cartItem);
-
-  localStorage.setItem(
-    "cart",
-    JSON.stringify(cart)
-  );
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   alert(product + " has been added to your cart!");
 }
