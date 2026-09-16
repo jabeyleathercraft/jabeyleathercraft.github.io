@@ -316,79 +316,82 @@ selectedProduct.photos.forEach(photo => {
 
     function buyNow() {
 
-      const color =
-        document.getElementById("color").value;
+  const color =
+    document.getElementById("color").value;
 
-      const customisation =
-        document.getElementById("customisation").value;
+  const customisation =
+    document.getElementById("customisation").value;
 
-      if (!color) {
-        alert("Please select a color.");
-        return;
-      }
+  if (!color) {
+    alert("Please select a color.");
+    return;
+  }
+
+  const product =
+    document.getElementById("productName").textContent;
+
+  const price =
+    document.getElementById("productPrice")
+      .textContent
+      .replace("MVR ", "");
+
+  const url =
+    "checkout.html" +
+    "?product=" + encodeURIComponent(product) +
+    "&price=" + encodeURIComponent(price) +
+    "&quantity=" + quantity +
+    "&color=" + encodeURIComponent(color) +
+    "&customisation=" +
+    encodeURIComponent(customisation);
+
+  window.location.href = url;
+}
+
+
 function addToCart() {
 
-    const product =
-        document.getElementById("productName").textContent;
+  const product =
+    document.getElementById("productName").textContent;
 
-    const price =
-        Number(
-            document
-                .getElementById("productPrice")
-                .textContent
-                .replace("MVR ", "")
-        );
-
-    const color =
-        document.getElementById("color").value;
-
-    const customisation =
-        document.getElementById("customisation").value;
-
-    if (!color) {
-        alert("Please select a color.");
-        return;
-    }
-
-    const cartItem = {
-        product: product,
-        price: price,
-        quantity: quantity,
-        color: color,
-        customisation: customisation
-    };
-
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.push(cartItem);
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
+  const price =
+    Number(
+      document
+        .getElementById("productPrice")
+        .textContent
+        .replace("MVR ", "")
     );
 
-    alert(product + " has been added to your cart!");
+  const color =
+    document.getElementById("color").value;
+
+  const customisation =
+    document.getElementById("customisation").value;
+
+  if (!color) {
+    alert("Please select a color.");
+    return;
+  }
+
+  const cartItem = {
+    product: product,
+    price: price,
+    quantity: quantity,
+    color: color,
+    customisation: customisation
+  };
+
+  let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(cartItem);
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+  alert(product + " has been added to your cart!");
 }
-      const product =
-        document.getElementById("productName").textContent;
-
-      const price =
-        document.getElementById("productPrice")
-          .textContent
-          .replace("MVR ", "");
-
-      const url =
-        "checkout.html" +
-        "?product=" + encodeURIComponent(product) +
-        "&price=" + encodeURIComponent(price) +
-        "&quantity=" + quantity +
-        "&color=" + encodeURIComponent(color) +
-        "&customisation=" +
-        encodeURIComponent(customisation);
-
-      window.location.href = url;
-    }
 
   </script>
 
