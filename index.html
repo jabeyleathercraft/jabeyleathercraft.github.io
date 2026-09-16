@@ -341,6 +341,17 @@ header p {
 .search-box input {
     padding-left: 45px;
 }
+        .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.main-nav span {
+    color: #765033;
+    font-size: 14px;
+}
     </style>
 </head>
 
@@ -354,10 +365,13 @@ header p {
 </header>
 
 
-<nav>
+<nav class="main-nav">
     <a href="#shop">Shop</a>
+    <span>|</span>
     <a href="#about">About</a>
+    <span>|</span>
     <a href="#custom">Custom</a>
+    <span>|</span>
     <a href="cart.html">Cart</a>
 </nav>
 
