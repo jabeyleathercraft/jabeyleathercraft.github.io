@@ -335,9 +335,9 @@ function loadCart() {
             Total: MVR ${total}
         </div>
 
-        <a href="checkout.html" class="checkout-button">
-            PROCEED TO CHECKOUT
-        </a>
+      <button class="checkout-button" onclick="goToCheckout()">
+    PROCEED TO CHECKOUT
+</button>
     `;
 
     container.appendChild(summary);
@@ -378,8 +378,23 @@ function removeItem(index) {
 
     loadCart();
 }
+function goToCheckout() {
 
+    const cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
 
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    localStorage.setItem(
+        "checkoutCart",
+        JSON.stringify(cart)
+    );
+
+    window.location.href = "checkout.html";
+}
 loadCart();
 
 </script>
