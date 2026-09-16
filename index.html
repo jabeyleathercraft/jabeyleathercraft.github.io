@@ -324,6 +324,23 @@ header p {
     border-color: #765033;
     box-shadow: 0 0 0 3px rgba(118, 80, 51, 0.12);
 }
+        .search-box {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #765033;
+    pointer-events: none;
+}
+
+.search-box input {
+    padding-left: 45px;
+}
     </style>
 </head>
 
@@ -356,12 +373,15 @@ header p {
 
 <section id="shop">
 <div class="search-container">
-    <input
-        type="text"
-        id="productSearch"
-        placeholder="Search our collection..."
-        oninput="searchProducts()"
-    >
+    <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="Search our collection..."
+            oninput="searchProducts()"
+        >
+    </div>
 </div>
     <div class="title">
         <h2>Our Collection</h2>
