@@ -217,7 +217,7 @@ header h2 {
       onclick="buyNow()">
       BUY NOW
     </button>
-<button class="cart-button" onclick="addToCart()">ADD TO CART</button>
+<button class="cart-button" onclick="testCart()">ADD TO CART</button>
     <a href="index.html" class="back">
       ← Back to Shop
     </a>
@@ -347,7 +347,9 @@ selectedProduct.photos.forEach(photo => {
   window.location.href = url;
 }
 
-
+function testCart() {
+  alert("ADD TO CART BUTTON IS WORKING");
+}
 function addToCart() {
 
   const product =
