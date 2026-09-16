@@ -296,6 +296,34 @@ header p {
     background: #3a271c;
     box-shadow: 0 8px 20px rgba(36, 24, 17, 0.25);
 }
+        .search-container {
+    max-width: 600px;
+    margin: 0 auto 35px;
+    padding: 0 20px;
+}
+
+.search-container input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 18px;
+    border: 1px solid #c9b39b;
+    border-radius: 6px;
+    background: #fffdf9;
+    color: #241811;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-container input::placeholder {
+    color: #8b7562;
+}
+
+.search-container input:focus {
+    border-color: #765033;
+    box-shadow: 0 0 0 3px rgba(118, 80, 51, 0.12);
+}
     </style>
 </head>
 
@@ -327,7 +355,14 @@ header p {
 </div>
 
 <section id="shop">
-
+<div class="search-container">
+    <input
+        type="text"
+        id="productSearch"
+        placeholder="Search our collection..."
+        onkeyup="searchProducts()"
+    >
+</div>
     <div class="title">
         <h2>Our Collection</h2>
         <p>Handcrafted leather goods from Jabey Leather Craft.</p>
