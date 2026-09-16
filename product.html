@@ -138,6 +138,25 @@ header h2 {
       color: #111;
       text-decoration: none;
     }
+    .cart-button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: transparent;
+    color: #241811;
+    border: 1px solid #241811;
+    border-radius: 5px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cart-button:hover {
+    background: #241811;
+    color: white;
+}
   </style>
 </head>
 
@@ -198,7 +217,7 @@ header h2 {
       onclick="buyNow()">
       BUY NOW
     </button>
-
+<button class="cart-button" onclick="addToCart()">ADD TO CART</button>
     <a href="index.html" class="back">
       ← Back to Shop
     </a>
@@ -307,7 +326,50 @@ selectedProduct.photos.forEach(photo => {
         alert("Please select a color.");
         return;
       }
+function addToCart() {
 
+    const product =
+        document.getElementById("productName").textContent;
+
+    const price =
+        Number(
+            document
+                .getElementById("productPrice")
+                .textContent
+                .replace("MVR ", "")
+        );
+
+    const color =
+        document.getElementById("color").value;
+
+    const customisation =
+        document.getElementById("customisation").value;
+
+    if (!color) {
+        alert("Please select a color.");
+        return;
+    }
+
+    const cartItem = {
+        product: product,
+        price: price,
+        quantity: quantity,
+        color: color,
+        customisation: customisation
+    };
+
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push(cartItem);
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    alert(product + " has been added to your cart!");
+}
       const product =
         document.getElementById("productName").textContent;
 
