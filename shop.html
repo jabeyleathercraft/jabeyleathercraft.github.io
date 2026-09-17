@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | Jabey Leather Craft</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f7f3ee;
+            color: #241811;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        header {
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #d8c7b5;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 4px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #765033;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .navigation a {
+            color: #241811;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .navigation span {
+            color: #765033;
+        }
+
+        .shop-header {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .shop-header h2 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: normal;
+        }
+
+        .shop-header p {
+            margin-top: 12px;
+            color: #765033;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 45px;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            color: #765033;
+            pointer-events: none;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 18px 15px 45px;
+            border: 1px solid #c9b39b;
+            border-radius: 6px;
+            background: #fffdf9;
+            color: #241811;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #765033;
+            box-shadow: 0 0 0 3px rgba(118, 80, 51, 0.12);
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 70px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: #fffdf9;
+            border: 1px solid #dfd2c5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 260px;
+            background: #9b704d;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .product-info p {
+            margin: 0 0 15px;
+            color: #765033;
+        }
+
+        .view-button {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 1px solid #241811;
+            color: #241811;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .view-button:hover {
+            background: #241811;
+            color: white;
+        }
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid #d8c7b5;
+            color: #765033;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .product-image {
+                height: 210px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .products {
+                padding: 0 12px 50px;
+            }
+
+            .product-image {
+                height: 180px;
+            }
+
+            .product-info {
+                padding: 14px 10px;
+            }
+
+            .product-info h3 {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>JABEY</h1>
+
+    <p>LEATHER CRAFT</p>
+
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <span>|</span>
+        <a href="shop.html">Shop</a>
+        <span>|</span>
+        <a href="index.html#about">About</a>
+        <span>|</span>
+        <a href="index.html#custom">Custom</a>
+        <span>|</span>
+        <a href="cart.html">Cart</a>
+    </nav>
+
+</header>
+
+
+<section class="shop-header">
+
+    <h2>Our Collection</h2>
+
+    <p>Handcrafted leather goods made in Maldives.</p>
+
+</section>
+
+
+<div class="search-container">
+
+    <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="Search our collection..."
+            oninput="searchProducts()"
+        >
+
+    </div>
+
+</div>
+
+
+<section class="products" id="products">
+
+
+    <div class="product">
+
+        <div class="product-image">
+            <img src="IMG_1475.jpeg" alt="Classic Leather Wallet">
+        </div>
+
+        <div class="product-info">
+
+            <h3>Classic Leather Wallet</h3>
+
+            <p>MVR 650</p>
+
+            <a
+                href="product.html?product=Classic%20Leather%20Wallet&price=650"
+                class="view-button"
+            >
+                VIEW PRODUCT
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product">
+
+        <div class="product-image">
+            <img src="IMG_1480.jpeg" alt="Minimal Card Holder">
+        </div>
+
+        <div class="product-info">
+
+            <h3>Minimal Card Holder</h3>
+
+            <p>MVR 350</p>
+
+            <a
+                href="product.html?product=Minimal%20Card%20Holder&price=350"
+                class="view-button"
+            >
+                VIEW PRODUCT
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product">
+
+        <div class="product-image">
+            <img src="IMG_1482.jpeg" alt="Leather Key Holder">
+        </div>
+
+        <div class="product-info">
+
+            <h3>Leather Key Holder</h3>
+
+            <p>MVR 250</p>
+
+            <a
+                href="product.html?product=Leather%20Key%20Holder&price=250"
+                class="view-button"
+            >
+                VIEW PRODUCT
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="product">
+
+        <div class="product-image">
+            <img src="IMG_1484.jpeg" alt="Custom Leather Wallet">
+        </div>
+
+        <div class="product-info">
+
+            <h3>Custom Leather Wallet</h3>
+
+            <p>MVR 850</p>
+
+            <a
+                href="product.html?product=Custom%20Leather%20Wallet&price=850"
+                class="view-button"
+            >
+                VIEW PRODUCT
+            </a>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    <p>Handcrafted in Maldives</p>
+
+    <p>© 2026 Jabey Leather Craft</p>
+
+</footer>
+
+
+<script>
+
+function searchProducts() {
+
+    const search =
+        document
+            .getElementById("productSearch")
+            .value
+            .toLowerCase()
+            .trim();
+
+    const products =
+        document.querySelectorAll(".products .product");
+
+    products.forEach(function(product) {
+
+        const name =
+            product
+                .querySelector("h3")
+                .textContent
+                .toLowerCase();
+
+        if (name.includes(search)) {
+
+            product.style.display = "";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
