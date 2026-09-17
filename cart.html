@@ -3,10 +3,6 @@
 
 <head>
 
-    <!-- =========================
-         BASIC PAGE SETTINGS
-    ========================== -->
-
     <meta charset="UTF-8">
 
     <meta
@@ -14,33 +10,19 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Cart | Jabey Leather Craft</title>
-
-
-    <!-- =========================
-         CART PAGE STYLES
-    ========================== -->
+    <title>Cart — Jabey Leather Craft</title>
 
     <style>
 
-        /* =========================
-           GLOBAL
-        ========================== */
-
         * {
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-
             background: #f6f2ec;
-
-            color: #241811;
+            color: #2b211b;
 
             font-family:
                 Georgia,
@@ -48,41 +30,46 @@
                 serif;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-        /* =========================
+
+        /* ==================================================
            HEADER
-        ========================== */
+        ================================================== */
 
         header {
-            padding: 30px 20px 24px;
+            padding: 30px 7%;
 
-            text-align: center;
+            border-bottom: 1px solid #d9cec2;
 
             background: #f6f2ec;
-
-            border-bottom: 1px solid #d7c7b7;
         }
 
+        .header-inner {
+            max-width: 1250px;
 
-        header h1 {
-            margin: 0;
+            margin: auto;
 
-            font-size: 25px;
+            display: flex;
 
-            font-weight: normal;
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 24px;
 
             letter-spacing: 5px;
-
-            text-transform: uppercase;
         }
 
-
-        header p {
-            margin: 8px 0 0;
-
+        .header-label {
             color: #8a6040;
 
-            font-size: 11px;
+            font-size: 10px;
 
             letter-spacing: 3px;
 
@@ -90,449 +77,560 @@
         }
 
 
-        /* =========================
+        /* ==================================================
            NAVIGATION
-        ========================== */
+        ================================================== */
 
         .navigation {
             display: flex;
 
-            align-items: center;
-
             justify-content: center;
 
-            gap: 14px;
+            align-items: center;
 
-            padding: 20px;
+            gap: 20px;
 
-            background: #f6f2ec;
+            padding: 21px;
 
-            border-bottom: 1px solid #d7c7b7;
-        }
-
-
-        .navigation a {
-            color: #241811;
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-            letter-spacing: 1.5px;
-
-            text-transform: uppercase;
-
-            transition:
-                color 0.2s ease;
-        }
-
-
-        .navigation a:hover {
-            color: #8a6040;
-        }
-
-
-        .navigation span {
-            color: #8a6040;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           PAGE TITLE
-        ========================== */
-
-        .cart-header {
-            max-width: 900px;
-
-            margin: 0 auto;
-
-            padding: 75px 25px 45px;
-
-            text-align: center;
-        }
-
-
-        .section-label {
-            margin-bottom: 18px;
-
-            color: #8a6040;
+            border-bottom: 1px solid #d9cec2;
 
             font-size: 11px;
 
-            letter-spacing: 4px;
+            letter-spacing: 2px;
 
             text-transform: uppercase;
         }
 
+        .navigation a {
+            transition: opacity 0.3s ease;
+        }
 
-        .cart-header h2 {
-            margin: 0;
+        .navigation a:hover {
+            opacity: 0.45;
+        }
 
-            font-size: clamp(35px, 5vw, 52px);
-
-            font-weight: normal;
+        .navigation span {
+            color: #9b8776;
         }
 
 
-        .cart-header p {
-            margin: 18px 0 0;
+        /* ==================================================
+           CART HEADER
+        ================================================== */
 
-            color: #765d49;
+        .cart-intro {
+            max-width: 1250px;
 
-            font-size: 15px;
+            margin: auto;
+
+            padding: 110px 7% 70px;
         }
 
-
-        /* =========================
-           CART CONTAINER
-        ========================== */
-
-        #cartContainer {
-            max-width: 900px;
-
-            margin: 0 auto;
-
-            padding: 0 25px 100px;
-        }
-
-
-        /* =========================
-           CART ITEM
-        ========================== */
-
-        .cart-item {
-            padding: 28px 0;
-
-            border-top: 1px solid #d7c7b7;
-        }
-
-
-        .cart-item:last-of-type {
-            border-bottom: 1px solid #d7c7b7;
-        }
-
-
-        .cart-item h3 {
-            margin: 0 0 12px;
-
-            font-size: 22px;
-
-            font-weight: normal;
-        }
-
-
-        .cart-item p {
-            margin: 7px 0;
-
-            color: #765d49;
-
-            font-size: 14px;
-
-            line-height: 1.5;
-        }
-
-
-        .cart-item strong {
-            color: #241811;
-        }
-
-
-        /* =========================
-           QUANTITY CONTROLS
-        ========================== */
-
-        .quantity-controls {
+        .cart-label {
             display: flex;
 
             align-items: center;
 
             gap: 18px;
 
-            margin-top: 20px;
+            margin-bottom: 45px;
+
+            color: #8a6040;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .cart-line {
+            width: 65px;
+
+            height: 1px;
+
+            background: #9a7658;
+        }
+
+        .cart-intro h1 {
+            font-size: clamp(55px, 8vw, 105px);
+
+            line-height: 0.9;
+
+            font-weight: normal;
+
+            letter-spacing: -4px;
+        }
+
+        .cart-intro h1 em {
+            color: #765d49;
+
+            font-style: italic;
         }
 
 
-        .quantity-controls button {
-            width: 34px;
+        /* ==================================================
+           CART CONTENT
+        ================================================== */
 
-            height: 34px;
+        .cart-wrapper {
+            max-width: 1250px;
 
-            border: 1px solid #241811;
+            margin: auto;
+
+            padding: 0 7% 140px;
+        }
+
+        .cart-layout {
+            display: grid;
+
+            grid-template-columns:
+                1.4fr
+                0.6fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+
+        /* ==================================================
+           CART ITEMS
+        ================================================== */
+
+        .cart-items {
+            border-top: 1px solid #d9cec2;
+        }
+
+        .cart-item {
+            display: grid;
+
+            grid-template-columns:
+                120px
+                1fr
+                auto;
+
+            gap: 25px;
+
+            align-items: center;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid #d9cec2;
+        }
+
+        .cart-item-image {
+            width: 120px;
+
+            height: 130px;
+
+            object-fit: cover;
+
+            background: #e9e0d5;
+        }
+
+        .cart-item-info h3 {
+            margin-bottom: 10px;
+
+            font-size: 20px;
+
+            font-weight: normal;
+        }
+
+        .cart-item-info p {
+            margin-bottom: 6px;
+
+            color: #8a7565;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .cart-item-price {
+            margin-top: 12px;
+
+            color: #765d49;
+
+            font-size: 14px;
+        }
+
+
+        /* ==================================================
+           QUANTITY
+        ================================================== */
+
+        .quantity-control {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 15px;
+        }
+
+        .quantity-control button {
+            width: 27px;
+
+            height: 27px;
+
+            border: 1px solid #cdbfb0;
 
             background: transparent;
 
-            color: #241811;
-
-            font-family: Georgia, serif;
-
-            font-size: 18px;
+            color: #2b211b;
 
             cursor: pointer;
 
-            transition:
-                background 0.2s ease,
-                color 0.2s ease;
+            font-family: Georgia, serif;
+
+            font-size: 16px;
         }
 
-
-        .quantity-controls button:hover {
-            background: #241811;
-
-            color: white;
-        }
-
-
-        .quantity-controls span {
-            min-width: 20px;
+        .quantity-control span {
+            min-width: 15px;
 
             text-align: center;
 
-            font-size: 15px;
+            font-size: 13px;
         }
 
 
-        /* =========================
-           REMOVE BUTTON
-        ========================== */
+        /* ==================================================
+           REMOVE
+        ================================================== */
 
         .remove-button {
-            margin-top: 18px;
-
-            padding: 8px 0;
-
             border: none;
 
             background: transparent;
 
-            color: #8a6040;
-
-            font-family: Georgia, serif;
-
-            font-size: 11px;
-
-            letter-spacing: 1.5px;
-
-            text-transform: uppercase;
+            color: #9a897b;
 
             cursor: pointer;
-        }
-
-
-        .remove-button:hover {
-            color: #241811;
-
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           ORDER SUMMARY
-        ========================== */
-
-        .cart-summary {
-            margin-top: 45px;
-
-            padding: 30px;
-
-            background: #ebe3d9;
-
-            border: 1px solid #d7c7b7;
-        }
-
-
-        .cart-summary h3 {
-            margin: 0 0 22px;
-
-            font-size: 14px;
-
-            letter-spacing: 3px;
-
-            font-weight: normal;
-
-            text-transform: uppercase;
-        }
-
-
-        .total {
-            margin-bottom: 25px;
-
-            font-size: 25px;
-        }
-
-
-        /* =========================
-           CHECKOUT BUTTON
-        ========================== */
-
-        .checkout-button {
-            width: 100%;
-
-            padding: 16px;
-
-            border: 1px solid #241811;
-
-            background: #241811;
-
-            color: white;
 
             font-family: Georgia, serif;
 
-            font-size: 12px;
+            font-size: 9px;
 
             letter-spacing: 2px;
 
             text-transform: uppercase;
 
+            transition: color 0.3s ease;
+        }
+
+        .remove-button:hover {
+            color: #8a6040;
+        }
+
+
+        /* ==================================================
+           SUMMARY
+        ================================================== */
+
+        .cart-summary {
+            position: sticky;
+
+            top: 25px;
+
+            padding: 35px;
+
+            background: #ebe3d9;
+
+            border: 1px solid #d8cabc;
+        }
+
+        .summary-label {
+            margin-bottom: 35px;
+
+            color: #8a6040;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .summary-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 17px 0;
+
+            border-bottom: 1px solid rgba(118, 93, 73, 0.25);
+
+            color: #765d49;
+
+            font-size: 14px;
+        }
+
+        .summary-total {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding-top: 25px;
+
+            font-size: 21px;
+        }
+
+        .checkout-button {
+            display: block;
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 18px;
+
+            border: 1px solid #2b211b;
+
+            background: #2b211b;
+
+            color: #f6f2ec;
+
             cursor: pointer;
 
-            transition:
-                background 0.2s ease,
-                color 0.2s ease;
-        }
+            font-family: Georgia, serif;
 
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            transition: all 0.3s ease;
+        }
 
         .checkout-button:hover {
-            background: transparent;
+            background: #8a6040;
 
-            color: #241811;
+            border-color: #8a6040;
         }
 
 
-        /* =========================
+        /* ==================================================
            EMPTY CART
-        ========================== */
+        ================================================== */
 
         .empty-cart {
-            padding: 80px 20px 100px;
+            padding: 90px 30px;
+
+            border-top: 1px solid #d9cec2;
+
+            border-bottom: 1px solid #d9cec2;
 
             text-align: center;
         }
 
+        .empty-cart h2 {
+            margin-bottom: 20px;
 
-        .empty-cart h3 {
-            margin: 0;
-
-            font-size: 30px;
+            font-size: 42px;
 
             font-weight: normal;
         }
 
-
         .empty-cart p {
-            margin: 15px 0 30px;
+            margin-bottom: 30px;
 
             color: #765d49;
-        }
 
+            font-size: 15px;
+        }
 
         .shop-button {
             display: inline-block;
 
-            padding: 14px 25px;
+            padding: 16px 30px;
 
-            border: 1px solid #241811;
+            border: 1px solid #2b211b;
 
-            color: #241811;
-
-            text-decoration: none;
-
-            font-size: 12px;
+            font-size: 10px;
 
             letter-spacing: 2px;
 
             text-transform: uppercase;
-
-            transition:
-                background 0.2s ease,
-                color 0.2s ease;
         }
 
 
-        .shop-button:hover {
-            background: #241811;
-
-            color: white;
-        }
-
-
-        /* =========================
+        /* ==================================================
            FOOTER
-        ========================== */
+        ================================================== */
 
         footer {
-            padding: 35px 20px;
+            padding: 80px 7% 35px;
 
-            background: #f6f2ec;
+            background: #201711;
 
-            border-top: 1px solid #d7c7b7;
+            color: #b8a79a;
+        }
 
-            text-align: center;
+        .footer-inner {
+            max-width: 1250px;
 
-            color: #765d49;
+            margin: auto;
+        }
 
-            font-size: 12px;
+        .footer-brand {
+            margin-bottom: 55px;
 
-            letter-spacing: 1px;
+            color: #f4ede5;
+
+            font-size: 27px;
+
+            letter-spacing: 5px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                1fr;
+
+            gap: 40px;
+
+            padding-bottom: 50px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.12);
+        }
+
+        .footer-column h3 {
+            margin-bottom: 18px;
+
+            color: #c9a783;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+        }
+
+        .footer-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding-top: 25px;
+
+            color: #806f62;
+
+            font-size: 10px;
         }
 
 
-        footer p {
-            margin: 7px 0;
-        }
-
-
-        /* =========================
+        /* ==================================================
            MOBILE
-        ========================== */
+        ================================================== */
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
 
-            header h1 {
-                font-size: 22px;
-
-                letter-spacing: 4px;
+            header {
+                padding: 25px 20px;
             }
 
+            .brand {
+                font-size: 19px;
+
+                letter-spacing: 3px;
+            }
+
+            .header-label {
+                font-size: 8px;
+            }
 
             .navigation {
-                gap: 8px;
+                gap: 9px;
 
-                padding: 18px 8px;
+                padding: 18px 10px;
+
+                font-size: 9px;
+
+                letter-spacing: 1px;
             }
 
-
-            .navigation a {
-                font-size: 10px;
-
-                letter-spacing: 0.8px;
+            .cart-intro {
+                padding: 80px 25px 55px;
             }
 
+            .cart-intro h1 {
+                font-size: 58px;
 
-            .navigation span {
-                font-size: 10px;
+                letter-spacing: -2px;
             }
 
-
-            .cart-header {
-                padding: 60px 20px 35px;
+            .cart-wrapper {
+                padding: 0 25px 100px;
             }
 
+            .cart-layout {
+                grid-template-columns: 1fr;
 
-            #cartContainer {
-                padding:
-                    0 20px 70px;
+                gap: 55px;
             }
-
-
-            .cart-item h3 {
-                font-size: 20px;
-            }
-
 
             .cart-summary {
-                padding: 25px 20px;
+                position: static;
+            }
+
+            .cart-item {
+                grid-template-columns:
+                    85px
+                    1fr;
+
+                gap: 18px;
+            }
+
+            .cart-item-image {
+                width: 85px;
+
+                height: 100px;
+            }
+
+            .cart-item-info h3 {
+                font-size: 17px;
+            }
+
+            .remove-button {
+                grid-column: 2;
+
+                justify-self: start;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+            footer {
+                padding: 60px 25px 30px;
+            }
+
+            .footer-bottom {
+                display: block;
+
+                line-height: 2;
             }
 
         }
@@ -547,17 +645,21 @@
 
     <!-- ==================================================
          HEADER
-    =================================================== -->
+    ================================================== -->
 
     <header>
 
-        <h1>
-            Jabey
-        </h1>
+        <div class="header-inner">
 
-        <p>
-            Leather Craft
-        </p>
+            <div class="brand">
+                JABEY
+            </div>
+
+            <div class="header-label">
+                Leather Craft / Maldives
+            </div>
+
+        </div>
 
     </header>
 
@@ -565,7 +667,7 @@
 
     <!-- ==================================================
          NAVIGATION
-    =================================================== -->
+    ================================================== -->
 
     <nav class="navigation">
 
@@ -602,209 +704,125 @@
 
 
     <!-- ==================================================
-         CART TITLE
-    =================================================== -->
+         CART INTRO
+    ================================================== -->
 
-    <section class="cart-header">
+    <section class="cart-intro">
 
-        <div class="section-label">
-            Your Selection
+        <div class="cart-label">
+
+            <span>01</span>
+
+            <div class="cart-line"></div>
+
+            <span>Your Selection</span>
+
         </div>
 
-        <h2>
-            Shopping Cart
-        </h2>
-
-        <p>
-            Review your handcrafted pieces before checkout.
-        </p>
+        <h1>
+            Your<br>
+            <em>collection.</em>
+        </h1>
 
     </section>
 
 
 
     <!-- ==================================================
-         CART CONTENT
-    =================================================== -->
+         CART
+    ================================================== -->
 
-    <div id="cartContainer"></div>
+    <main class="cart-wrapper">
 
+        <div id="emptyCart" class="empty-cart" style="display:none;">
 
+            <h2>
+                Your cart is empty.
+            </h2>
 
-    <!-- ==================================================
-         FOOTER
-    =================================================== -->
+            <p>
+                Discover handcrafted pieces made in the Maldives.
+            </p>
 
-    <footer>
+            <a
+                href="shop.html"
+                class="shop-button"
+            >
+                Explore Collection
+            </a>
 
-        <p>
-            Handcrafted in Maldives
-        </p>
+        </div>
 
-        <p>
-            © 2026 Jabey Leather Craft
-        </p>
 
-    </footer>
+        <div
+            id="cartContent"
+            class="cart-layout"
+        >
 
 
+            <!-- CART ITEMS -->
 
-    <!-- ==================================================
-         CART JAVASCRIPT
-         FUNCTIONALITY KEPT THE SAME
-    =================================================== -->
+            <div
+                id="cartItems"
+                class="cart-items"
+            >
+            </div>
 
-    <script>
 
-        function loadCart() {
+            <!-- SUMMARY -->
 
-            const cart =
-                JSON.parse(localStorage.getItem("cart")) || [];
+            <aside class="cart-summary">
 
-            const container =
-                document.getElementById("cartContainer");
-
-            container.innerHTML = "";
-
-
-            /* =========================
-               EMPTY CART
-            ========================== */
-
-            if (cart.length === 0) {
-
-                container.innerHTML = `
-
-                    <div class="empty-cart">
-
-                        <h3>
-                            Your cart is empty.
-                        </h3>
-
-                        <p>
-                            Add something from our collection.
-                        </p>
-
-                        <a
-                            href="shop.html"
-                            class="shop-button"
-                        >
-                            SHOP COLLECTION
-                        </a>
-
-                    </div>
-
-                `;
-
-                return;
-            }
-
-
-            /* =========================
-               CART ITEMS
-            ========================== */
-
-            let total = 0;
-
-
-            cart.forEach(function(item, index) {
-
-                const itemTotal =
-                    item.price * item.quantity;
-
-                total += itemTotal;
-
-
-                const div =
-                    document.createElement("div");
-
-
-                div.className = "cart-item";
-
-
-                div.innerHTML = `
-
-                    <h3>
-                        ${item.product}
-                    </h3>
-
-                    <p>
-                        Price: MVR ${item.price}
-                    </p>
-
-                    <p>
-                        Color: ${item.color}
-                    </p>
-
-                    <p>
-                        Customisation:
-                        ${item.customisation || "None"}
-                    </p>
-
-                    <p>
-                        Item Total:
-                        <strong>
-                            MVR ${itemTotal}
-                        </strong>
-                    </p>
-
-
-                    <div class="quantity-controls">
-
-                        <button
-                            onclick="changeQuantity(${index}, -1)"
-                        >
-                            −
-                        </button>
-
-                        <span>
-                            ${item.quantity}
-                        </span>
-
-                        <button
-                            onclick="changeQuantity(${index}, 1)"
-                        >
-                            +
-                        </button>
-
-                    </div>
-
-
-                    <button
-                        class="remove-button"
-                        onclick="removeItem(${index})"
-                    >
-                        REMOVE
-                    </button>
-
-                `;
-
-
-                container.appendChild(div);
-
-            });
-
-
-            /* =========================
-               ORDER SUMMARY
-            ========================== */
-
-            const summary =
-                document.createElement("div");
-
-
-            summary.className =
-                "cart-summary";
-
-
-            summary.innerHTML = `
-
-                <h3>
+                <div class="summary-label">
                     Order Summary
-                </h3>
+                </div>
 
-                <div class="total">
-                    Total: MVR ${total}
+                <div class="summary-row">
+
+                    <span>
+                        Items
+                    </span>
+
+                    <span id="itemCount">
+                        0
+                    </span>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="subtotal">
+                        MVR 0
+                    </span>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <span>
+                        Calculated at checkout
+                    </span>
+
+                </div>
+
+                <div class="summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="total">
+                        MVR 0
+                    </span>
+
                 </div>
 
                 <button
@@ -814,29 +832,318 @@
                     Proceed to Checkout
                 </button>
 
-            `;
+            </aside>
+
+        </div>
+
+    </main>
 
 
-            container.appendChild(summary);
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                JABEY LEATHER CRAFT
+            </div>
+
+            <div class="footer-grid">
+
+                <div class="footer-column">
+
+                    <h3>Explore</h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="shop.html">
+                        Shop
+                    </a>
+
+                    <a href="index.html#about">
+                        About
+                    </a>
+
+                    <a href="index.html#custom">
+                        Custom
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>Connect</h3>
+
+                    <a href="https://wa.me/9609878207">
+                        WhatsApp
+                    </a>
+
+                    <a href="https://wa.me/9609878207">
+                        Custom Orders
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>Location</h3>
+
+                    <p>
+                        Handcrafted
+                    </p>
+
+                    <p>
+                        Maldives
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Jabey Leather Craft
+                </span>
+
+                <span>
+                    Handcrafted in Maldives
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         CART JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+        function loadCart() {
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem("cart") || "[]"
+                );
+
+
+            const cartItems =
+                document.getElementById("cartItems");
+
+            const cartContent =
+                document.getElementById("cartContent");
+
+            const emptyCart =
+                document.getElementById("emptyCart");
+
+
+            if (cart.length === 0) {
+
+                cartContent.style.display = "none";
+
+                emptyCart.style.display = "block";
+
+                return;
+
+            }
+
+
+            cartContent.style.display = "grid";
+
+            emptyCart.style.display = "none";
+
+
+            cartItems.innerHTML = "";
+
+
+            let subtotal = 0;
+
+            let itemCount = 0;
+
+
+            cart.forEach(
+                function(item, index) {
+
+                    const itemTotal =
+                        item.price *
+                        item.quantity;
+
+
+                    subtotal += itemTotal;
+
+                    itemCount += item.quantity;
+
+
+                    let image = "";
+
+
+                    if (
+                        item.product ===
+                        "Classic Leather Wallet"
+                    ) {
+
+                        image =
+                            "IMG_1475.jpeg";
+
+                    } else if (
+                        item.product ===
+                        "Minimal Card Holder"
+                    ) {
+
+                        image =
+                            "IMG_1480.jpeg";
+
+                    } else if (
+                        item.product ===
+                        "Leather Key Holder"
+                    ) {
+
+                        image =
+                            "IMG_1482.jpeg";
+
+                    } else if (
+                        item.product ===
+                        "Custom Leather Wallet"
+                    ) {
+
+                        image =
+                            "IMG_1484.jpeg";
+
+                    }
+
+
+                    const cartItem =
+                        document.createElement("div");
+
+
+                    cartItem.className =
+                        "cart-item";
+
+
+                    cartItem.innerHTML = `
+
+                        <img
+                            class="cart-item-image"
+                            src="${image}"
+                            alt="${item.product}"
+                        >
+
+                        <div class="cart-item-info">
+
+                            <h3>
+                                ${item.product}
+                            </h3>
+
+                            <p>
+                                Colour: ${item.color}
+                            </p>
+
+                            ${
+                                item.customisation
+                                ?
+                                `<p>
+                                    Personalisation:
+                                    ${item.customisation}
+                                </p>`
+                                :
+                                ""
+                            }
+
+                            <div class="cart-item-price">
+                                MVR ${itemTotal}
+                            </div>
+
+                            <div class="quantity-control">
+
+                                <button
+                                    onclick="changeQuantity(${index}, -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span>
+                                    ${item.quantity}
+                                </span>
+
+                                <button
+                                    onclick="changeQuantity(${index}, 1)"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="remove-button"
+                            onclick="removeItem(${index})"
+                        >
+                            Remove
+                        </button>
+
+                    `;
+
+
+                    cartItems.appendChild(cartItem);
+
+                }
+            );
+
+
+            document.getElementById(
+                "itemCount"
+            ).textContent =
+                itemCount;
+
+
+            document.getElementById(
+                "subtotal"
+            ).textContent =
+                "MVR " + subtotal;
+
+
+            document.getElementById(
+                "total"
+            ).textContent =
+                "MVR " + subtotal;
 
         }
 
 
 
-        /* =========================
+        /* ==================================================
            CHANGE QUANTITY
-        ========================== */
+        ================================================== */
 
         function changeQuantity(index, change) {
 
             const cart =
-                JSON.parse(localStorage.getItem("cart")) || [];
+                JSON.parse(
+                    localStorage.getItem("cart") || "[]"
+                );
 
 
             cart[index].quantity += change;
 
 
-            if (cart[index].quantity < 1) {
+            if (
+                cart[index].quantity < 1
+            ) {
 
                 cart[index].quantity = 1;
 
@@ -855,14 +1162,16 @@
 
 
 
-        /* =========================
+        /* ==================================================
            REMOVE ITEM
-        ========================== */
+        ================================================== */
 
         function removeItem(index) {
 
             const cart =
-                JSON.parse(localStorage.getItem("cart")) || [];
+                JSON.parse(
+                    localStorage.getItem("cart") || "[]"
+                );
 
 
             cart.splice(index, 1);
@@ -880,19 +1189,23 @@
 
 
 
-        /* =========================
-           PROCEED TO CHECKOUT
-        ========================== */
+        /* ==================================================
+           CHECKOUT
+        ================================================== */
 
         function goToCheckout() {
 
             const cart =
-                JSON.parse(localStorage.getItem("cart")) || [];
+                JSON.parse(
+                    localStorage.getItem("cart") || "[]"
+                );
 
 
             if (cart.length === 0) {
 
-                alert("Your cart is empty.");
+                alert(
+                    "Your cart is empty."
+                );
 
                 return;
 
@@ -912,9 +1225,9 @@
 
 
 
-        /* =========================
-           LOAD CART
-        ========================== */
+        /* ==================================================
+           LOAD
+        ================================================== */
 
         loadCart();
 
