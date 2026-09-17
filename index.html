@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =========================
+         BASIC PAGE SETTINGS
+    ========================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -12,7 +16,16 @@
 
     <title>Jabey Leather Craft</title>
 
+
+    <!-- =========================
+         MAIN STYLES
+    ========================== -->
+
     <style>
+
+        /* =========================
+           GLOBAL
+        ========================== */
 
         * {
             box-sizing: border-box;
@@ -24,15 +37,19 @@
 
         body {
             margin: 0;
-            background: #f7f3ee;
+            background: #f6f2ec;
             color: #241811;
             font-family: Georgia, "Times New Roman", serif;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO SECTION
+        ========================== */
 
         .hero {
             position: relative;
+
             width: 100%;
             height: 100vh;
             min-height: 600px;
@@ -41,187 +58,474 @@
                 linear-gradient(
                     to right,
                     rgba(20, 13, 9, 0.72),
-                    rgba(20, 13, 9, 0.25),
+                    rgba(20, 13, 9, 0.28),
                     rgba(20, 13, 9, 0.05)
                 ),
                 url("IMG_1556.jpeg");
 
             background-size: cover;
             background-position: center;
+
             display: flex;
             align-items: center;
         }
+
 
         .hero-content {
             position: relative;
             z-index: 2;
-            color: white;
+
             max-width: 650px;
-            padding: 40px 7%;
+
+            padding-left: 8%;
+            padding-right: 30px;
+
+            color: white;
         }
 
-        .hero-content h1 {
-            margin: 0;
-            font-size: clamp(38px, 6vw, 72px);
-            font-weight: normal;
+
+        .hero-brand {
+            margin: 0 0 22px;
+
+            font-size: 14px;
             letter-spacing: 5px;
-            line-height: 1.05;
+
             text-transform: uppercase;
+
+            font-weight: normal;
         }
 
-        .hero-content p {
-            margin: 22px 0 0;
-            font-size: clamp(20px, 3vw, 30px);
+
+        .hero-title {
+            margin: 0;
+
+            font-size: clamp(42px, 6vw, 78px);
+
+            line-height: 1.02;
+
+            font-weight: normal;
+
+            letter-spacing: 1px;
+        }
+
+
+        .hero-subtitle {
+            margin: 24px 0 0;
+
+            font-size: clamp(20px, 2.5vw, 30px);
+
             letter-spacing: 2px;
+
+            font-weight: normal;
         }
 
-        /* NAVIGATION */
+
+        /* =========================
+           NAVIGATION
+        ========================== */
 
         .navigation {
             display: flex;
-            justify-content: center;
+
             align-items: center;
-            gap: 12px;
+            justify-content: center;
 
-            padding: 22px 20px;
+            gap: 14px;
 
-            background: #f7f3ee;
-            border-bottom: 1px solid #d8c7b5;
+            padding: 24px 20px;
+
+            background: #f6f2ec;
+
+            border-bottom: 1px solid #d7c7b7;
         }
+
 
         .navigation a {
             color: #241811;
+
             text-decoration: none;
-            font-size: 14px;
+
+            font-size: 13px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            transition:
+                color 0.2s ease;
         }
+
+
+        .navigation a:hover {
+            color: #8a6040;
+        }
+
 
         .navigation span {
-            color: #765033;
-            font-size: 14px;
+            color: #8a6040;
+
+            font-size: 13px;
         }
 
-        /* INTRO */
 
-        .intro {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 80px 25px;
-        }
+        /* =========================
+           INTRODUCTION SECTION
+        ========================== */
 
-        .intro h2 {
-            margin: 0;
-            font-size: 32px;
-            font-weight: normal;
-        }
-
-        .intro p {
-            margin-top: 20px;
-            color: #765033;
-            line-height: 1.8;
-            font-size: 16px;
-        }
-
-        /* ABOUT */
-
-        .about {
+        .intro-section {
             max-width: 900px;
+
             margin: 0 auto;
-            padding: 60px 25px 90px;
+
+            padding: 110px 30px;
+
             text-align: center;
         }
 
-        .about h2 {
-            font-size: 30px;
-            font-weight: normal;
+
+        .section-label {
             margin-bottom: 20px;
+
+            color: #8a6040;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
         }
 
-        .about p {
-            color: #765033;
-            line-height: 1.8;
+
+        .intro-section h2 {
+            margin: 0;
+
+            font-size: clamp(32px, 4vw, 48px);
+
+            font-weight: normal;
+
+            line-height: 1.2;
+        }
+
+
+        .intro-section p {
+            max-width: 650px;
+
+            margin: 28px auto 0;
+
+            color: #765d49;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =========================
+           CRAFT SECTION
+        ========================== */
+
+        .craft-section {
+            padding: 100px 7%;
+
+            background: #ebe3d9;
+        }
+
+
+        .craft-container {
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .craft-image {
+            width: 100%;
+
+            min-height: 500px;
+
+            background-image:
+                url("IMG_1556.jpeg");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        .craft-content {
+            max-width: 520px;
+        }
+
+
+        .craft-content h2 {
+            margin: 0;
+
+            font-size: clamp(34px, 4vw, 52px);
+
+            font-weight: normal;
+
+            line-height: 1.1;
+        }
+
+
+        .craft-content p {
+            margin-top: 28px;
+
+            color: #765d49;
+
+            line-height: 1.9;
+
             font-size: 16px;
         }
 
-        /* CUSTOM */
 
-        .custom {
-            background: #241811;
-            color: white;
+        /* =========================
+           ABOUT SECTION
+        ========================== */
+
+        .about-section {
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 110px 30px;
+
             text-align: center;
-            padding: 80px 25px;
         }
 
-        .custom h2 {
+
+        .about-section h2 {
             margin: 0;
-            font-size: 30px;
+
+            font-size: clamp(34px, 4vw, 50px);
+
             font-weight: normal;
         }
 
-        .custom p {
-            max-width: 650px;
-            margin: 20px auto 30px;
-            line-height: 1.8;
-            color: #e5d8cb;
+
+        .about-section p {
+            max-width: 700px;
+
+            margin: 30px auto 0;
+
+            color: #765d49;
+
+            font-size: 16px;
+
+            line-height: 1.9;
         }
+
+
+        /* =========================
+           CUSTOM ORDERS SECTION
+        ========================== */
+
+        .custom-section {
+            padding: 110px 30px;
+
+            background: #241811;
+
+            color: white;
+
+            text-align: center;
+        }
+
+
+        .custom-section .section-label {
+            color: #c9a77d;
+        }
+
+
+        .custom-section h2 {
+            margin: 0;
+
+            font-size: clamp(36px, 5vw, 58px);
+
+            font-weight: normal;
+        }
+
+
+        .custom-section p {
+            max-width: 650px;
+
+            margin: 28px auto 35px;
+
+            color: #dfd2c5;
+
+            line-height: 1.9;
+
+            font-size: 16px;
+        }
+
 
         .contact-button {
             display: inline-block;
-            padding: 13px 25px;
-            border: 1px solid white;
+
+            padding: 14px 28px;
+
+            border: 1px solid #d8c2a8;
+
             color: white;
+
             text-decoration: none;
-            letter-spacing: 1.5px;
-            font-size: 13px;
-            border-radius: 4px;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
         }
 
+
         .contact-button:hover {
-            background: white;
+            background: #d8c2a8;
+
             color: #241811;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================== */
 
         footer {
-            padding: 30px 20px;
+            padding: 35px 20px;
+
+            background: #f6f2ec;
+
             text-align: center;
-            background: #f7f3ee;
-            color: #765033;
-            font-size: 13px;
+
+            color: #765d49;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
         }
 
-        /* MOBILE */
 
-        @media (max-width: 600px) {
+        footer p {
+            margin: 7px 0;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+
+            /* HERO */
 
             .hero {
                 height: 100svh;
+
                 min-height: 550px;
+
                 background-position: center;
             }
 
+
             .hero-content {
-                padding: 30px 25px;
+                padding-left: 28px;
+                padding-right: 28px;
             }
 
-            .hero-content h1 {
-                font-size: 40px;
+
+            .hero-brand {
+                font-size: 11px;
+
                 letter-spacing: 3px;
             }
 
-            .hero-content p {
-                font-size: 21px;
+
+            .hero-title {
+                font-size: 43px;
             }
+
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+
+            /* NAVIGATION */
 
             .navigation {
                 gap: 8px;
-                padding: 18px 10px;
+
+                padding: 19px 8px;
             }
 
-            .navigation a,
+
+            .navigation a {
+                font-size: 10px;
+
+                letter-spacing: 0.8px;
+            }
+
+
             .navigation span {
-                font-size: 13px;
+                font-size: 10px;
+            }
+
+
+            /* INTRO */
+
+            .intro-section {
+                padding: 80px 25px;
+            }
+
+
+            /* CRAFT */
+
+            .craft-section {
+                padding: 70px 20px;
+            }
+
+
+            .craft-container {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+
+            .craft-image {
+                min-height: 400px;
+            }
+
+
+            .craft-content {
+                text-align: center;
+
+                margin: 0 auto;
+            }
+
+
+            /* ABOUT */
+
+            .about-section {
+                padding: 80px 25px;
+            }
+
+
+            /* CUSTOM */
+
+            .custom-section {
+                padding: 80px 25px;
             }
 
         }
@@ -234,130 +538,220 @@
 <body>
 
 
-<!-- HERO -->
+    <!-- ==================================================
+         HERO SECTION
+    =================================================== -->
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <h1>
-            Jabey Leather Craft
-        </h1>
+            <p class="hero-brand">
+                Jabey Leather Craft
+            </p>
+
+            <h1 class="hero-title">
+                Leather,<br>
+                Made Personal.
+            </h1>
+
+            <p class="hero-subtitle">
+                Handcrafted in Maldives.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         NAVIGATION SECTION
+    =================================================== -->
+
+    <nav class="navigation">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <span>|</span>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <span>|</span>
+
+        <a href="#about">
+            About
+        </a>
+
+        <span>|</span>
+
+        <a href="#custom">
+            Custom
+        </a>
+
+        <span>|</span>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </nav>
+
+
+
+    <!-- ==================================================
+         INTRODUCTION SECTION
+    =================================================== -->
+
+    <section class="intro-section">
+
+        <div class="section-label">
+            The Brand
+        </div>
+
+        <h2>
+            Leather made with intention.
+        </h2>
 
         <p>
-            Leather, Made Personal.
+            Jabey Leather Craft creates handcrafted leather goods
+            with a focus on simplicity, craftsmanship and individuality.
+            Each piece is made carefully by hand and designed for everyday use.
         </p>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- NAVIGATION -->
 
-<nav class="navigation">
+    <!-- ==================================================
+         CRAFT SECTION
+    =================================================== -->
 
-    <a href="index.html">
-        Home
-    </a>
+    <section class="craft-section">
 
-    <span>|</span>
-
-    <a href="shop.html">
-        Shop
-    </a>
-
-    <span>|</span>
-
-    <a href="#about">
-        About
-    </a>
-
-    <span>|</span>
-
-    <a href="#custom">
-        Custom
-    </a>
-
-    <span>|</span>
-
-    <a href="cart.html">
-        Cart
-    </a>
-
-</nav>
+        <div class="craft-container">
 
 
-<!-- INTRO -->
+            <!-- CRAFT IMAGE -->
 
-<section class="intro">
-
-    <h2>
-        Handcrafted Leather
-    </h2>
-
-    <p>
-        Carefully crafted leather goods made by hand in the Maldives,
-        designed for everyday use and made to last.
-    </p>
-
-</section>
+            <div class="craft-image"></div>
 
 
-<!-- ABOUT -->
+            <!-- CRAFT TEXT -->
 
-<section class="about" id="about">
+            <div class="craft-content">
 
-    <h2>
-        About Jabey Leather Craft
-    </h2>
+                <div class="section-label">
+                    The Craft
+                </div>
 
-    <p>
-        Jabey Leather Craft creates handmade leather pieces
-        with a focus on craftsmanship, simplicity and individuality.
-        Every piece is carefully made by hand with attention to detail.
-    </p>
+                <h2>
+                    Made by hand.
+                    Made to last.
+                </h2>
 
-</section>
+                <p>
+                    Every piece begins with carefully selected leather
+                    and is shaped, stitched and finished by hand.
+                    The process is deliberately slow, allowing attention
+                    to be given to every detail.
+                </p>
+
+                <p>
+                    From everyday wallets to personalised pieces,
+                    our goal is simple: create leather goods that become
+                    part of your everyday life.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-<!-- CUSTOM -->
 
-<section class="custom" id="custom">
+    <!-- ==================================================
+         ABOUT SECTION
+    =================================================== -->
 
-    <h2>
-        Custom Orders
-    </h2>
-
-    <p>
-        Looking for something made specifically for you?
-        Contact us for personalised leather products,
-        custom colours and custom designs.
-    </p>
-
-    <a
-        href="https://wa.me/9609878207"
-        class="contact-button"
+    <section
+        class="about-section"
+        id="about"
     >
-        CONTACT US
-    </a>
 
-</section>
+        <div class="section-label">
+            About
+        </div>
+
+        <h2>
+            Jabey Leather Craft
+        </h2>
+
+        <p>
+            Born from a love for leather and handmade craftsmanship,
+            Jabey Leather Craft creates timeless pieces in the Maldives.
+            We believe good leather should feel personal, age beautifully
+            and last for years.
+        </p>
+
+    </section>
 
 
-<!-- FOOTER -->
 
-<footer>
+    <!-- ==================================================
+         CUSTOM ORDERS SECTION
+    =================================================== -->
 
-    <p>
-        Handcrafted in Maldives
-    </p>
+    <section
+        class="custom-section"
+        id="custom"
+    >
 
-    <p>
-        © 2026 Jabey Leather Craft
-    </p>
+        <div class="section-label">
+            Personal
+        </div>
 
-</footer>
+        <h2>
+            Made for you.
+        </h2>
+
+        <p>
+            Looking for something personal?
+            We offer custom leather pieces with personalised colours,
+            names, initials and designs.
+        </p>
+
+        <a
+            href="https://wa.me/9609878207"
+            class="contact-button"
+        >
+            Contact Us
+        </a>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FOOTER SECTION
+    =================================================== -->
+
+    <footer>
+
+        <p>
+            Handcrafted in Maldives
+        </p>
+
+        <p>
+            © 2026 Jabey Leather Craft
+        </p>
+
+    </footer>
 
 
 </body>
