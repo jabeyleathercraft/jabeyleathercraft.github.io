@@ -1,612 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Jabey Leather Craft</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Georgia, serif;
-            background: #f5efe6;
+            background: #f7f3ee;
             color: #241811;
+            font-family: Georgia, "Times New Roman", serif;
         }
 
-        header {
-            background: #241811;
+        /* HERO */
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+
+            background-image:
+                linear-gradient(
+                    to right,
+                    rgba(20, 13, 9, 0.72),
+                    rgba(20, 13, 9, 0.25),
+                    rgba(20, 13, 9, 0.05)
+                ),
+                url("IMG_1556.jpeg");
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             color: white;
-            padding: 20px;
-            text-align: center;
+            max-width: 650px;
+            padding: 40px 7%;
         }
 
-        header h1 {
+        .hero-content h1 {
             margin: 0;
-            font-size: 30px;
+            font-size: clamp(38px, 6vw, 72px);
+            font-weight: normal;
+            letter-spacing: 5px;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            margin: 22px 0 0;
+            font-size: clamp(20px, 3vw, 30px);
             letter-spacing: 2px;
         }
 
-        header p {
-            margin: 5px 0 0;
-            color: #c9a77d;
-            letter-spacing: 3px;
-            font-size: 12px;
+        /* NAVIGATION */
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+
+            padding: 22px 20px;
+
+            background: #f7f3ee;
+            border-bottom: 1px solid #d8c7b5;
         }
 
-        nav {
-    background: #3a271c;
-    padding: 15px 12px;
-    text-align: center;
-    border-bottom: 1px solid #4b3628;
-}
+        .navigation a {
+            color: #241811;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 14px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-}
+        .navigation span {
+            color: #765033;
+            font-size: 14px;
+        }
 
-nav a:hover {
-    color: #c9a77d;
-}
+        /* INTRO */
 
-        .hero {
+        .intro {
             text-align: center;
-            padding: 90px 20px;
-            background: #d8c0a3;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 80px 25px;
         }
 
-        .hero h2 {
-            font-size: 48px;
-            margin: 0 0 15px;
+        .intro h2 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: normal;
         }
 
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin: auto;
-            line-height: 1.6;
+        .intro p {
+            margin-top: 20px;
+            color: #765033;
+            line-height: 1.8;
+            font-size: 16px;
         }
 
-      .button {
-    display: inline-block;
-    margin-top: 25px;
-    background: #241811;
-    color: white;
-    padding: 14px 25px;
-    text-decoration: none;
-    border-radius: 4px;
-    letter-spacing: 1px;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.button:hover {
-    background: #3a271c;
-    transform: translateY(-2px);
-}
-
-        section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-.title {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.title h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.title p {
-    color: #765033;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-}
-     
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-      .product {
-    background: #fffdf9;
-    padding: 15px;
-    border: 1px solid #d8c8b7;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(36, 24, 17, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.product:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(36, 24, 17, 0.14);
-}
-
-    .product-image {
-    height: 220px;
-    background: #9b704d;
-    overflow: hidden;
-}
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-     .product h3 {
-    margin: 18px 0 6px;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-}
-
-.price {
-    color: #765033;
-    font-weight: bold;
-    font-size: 16px;
-    margin: 0 0 15px;
-}
-
-      .product button {
-    width: 100%;
-    padding: 12px;
-    background: #241811;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-family: Georgia, serif;
-    letter-spacing: 1px;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.product button:hover {
-    background: #3a271c;
-    transform: translateY(-2px);
-}
+        /* ABOUT */
 
         .about {
-            background: #241811;
-            color: white;
-            max-width: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 25px 90px;
             text-align: center;
         }
 
-        .about div {
-            max-width: 750px;
-            margin: auto;
+        .about h2 {
+            font-size: 30px;
+            font-weight: normal;
+            margin-bottom: 20px;
         }
 
         .about p {
+            color: #765033;
             line-height: 1.8;
-            color: #ddd0c3;
+            font-size: 16px;
         }
+
+        /* CUSTOM */
+
+        .custom {
+            background: #241811;
+            color: white;
+            text-align: center;
+            padding: 80px 25px;
+        }
+
+        .custom h2 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: normal;
+        }
+
+        .custom p {
+            max-width: 650px;
+            margin: 20px auto 30px;
+            line-height: 1.8;
+            color: #e5d8cb;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 13px 25px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+
+        .contact-button:hover {
+            background: white;
+            color: #241811;
+        }
+
+        /* FOOTER */
 
         footer {
-    background: #17100c;
-    color: white;
-    text-align: center;
-    padding: 45px 20px;
-    border-top: 1px solid #3a271c;
-}
-
-footer h3 {
-    margin: 0 0 10px;
-    letter-spacing: 3px;
-    font-size: 18px;
-}
-
-footer p {
-    margin: 6px 0;
-    color: #c9a77d;
-    font-size: 13px;
-}
-
-        @media (max-width: 800px) {
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero h2 {
-                font-size: 38px;
-            }
+            padding: 30px 20px;
+            text-align: center;
+            background: #f7f3ee;
+            color: #765033;
+            font-size: 13px;
         }
 
-    @media (max-width: 500px) {
-    .products {
-        grid-template-columns: 1fr 1fr;
-    }
+        /* MOBILE */
 
-            .product-image {
-                height: 160px;
+        @media (max-width: 600px) {
+
+            .hero {
+                height: 100svh;
+                min-height: 550px;
+                background-position: center;
             }
-            .logo {
 
-  width: 150px;
+            .hero-content {
+                padding: 30px 25px;
+            }
 
-  max-width: 70%;
+            .hero-content h1 {
+                font-size: 40px;
+                letter-spacing: 3px;
+            }
 
-  height: auto;
+            .hero-content p {
+                font-size: 21px;
+            }
 
-  display: block;
+            .navigation {
+                gap: 8px;
+                padding: 18px 10px;
+            }
 
-  margin: 0 auto;
+            .navigation a,
+            .navigation span {
+                font-size: 13px;
+            }
+
         }
- header {
-    padding: 28px 20px;
-    border-bottom: 1px solid #4b3628;
-}
 
-header h1 {
-    font-size: 34px;
-    letter-spacing: 5px;
-}
-
-header p {
-    margin-top: 8px;
-    font-size: 13px;
-    letter-spacing: 4px;
-}
-
-.hero {
-    padding: 110px 20px;
-    background: linear-gradient(
-        135deg,
-        #d8c0a3,
-        #c8a982
-    );
-}
-
-.hero h2 {
-    font-size: 52px;
-    letter-spacing: 1px;
-    line-height: 1.1;
-}
-
-.hero p {
-    max-width: 620px;
-    font-size: 17px;
-}
-
-.hero .button {
-    margin-top: 30px;
-    padding: 15px 30px;
-    font-size: 13px;
-    letter-spacing: 2px;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(36, 24, 17, 0.18);
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero .button:hover {
-    transform: translateY(-3px);
-    background: #3a271c;
-    box-shadow: 0 8px 20px rgba(36, 24, 17, 0.25);
-}
-        .search-container {
-    max-width: 600px;
-    margin: 0 auto 35px;
-    padding: 0 20px;
-}
-
-.search-container input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 15px 18px;
-    border: 1px solid #c9b39b;
-    border-radius: 6px;
-    background: #fffdf9;
-    color: #241811;
-    font-family: Georgia, serif;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.search-container input::placeholder {
-    color: #8b7562;
-}
-
-.search-container input:focus {
-    border-color: #765033;
-    box-shadow: 0 0 0 3px rgba(118, 80, 51, 0.12);
-}
-        .search-box {
-    position: relative;
-}
-
-.search-icon {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 22px;
-    color: #765033;
-    pointer-events: none;
-}
-
-.search-box input {
-    padding-left: 45px;
-}
-        .main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-}
-
-.main-nav span {
-    color: #765033;
-    font-size: 14px;
-}
     </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <img src="Logo.jpg.png" alt="Jabey Leather Craft" class="logo">
-     <h1>JABEY</h1>
 
-  <p>LEATHER CRAFT</p>
-</header>
+<!-- HERO -->
 
+<section class="hero">
 
-<nav class="main-nav">
-    <a href="#shop">Shop</a>
-    <span>|</span>
-    <a href="#about">About</a>
-    <span>|</span>
-    <a href="#custom">Custom</a>
-    <span>|</span>
-    <a href="cart.html">Cart</a>
-</nav>
+    <div class="hero-content">
 
-<div class="hero">
-    <h2>Leather, Made Personal.</h2>
+        <h1>
+            Jabey Leather Craft
+        </h1>
 
-    <p>
-        Handcrafted leather goods made with patience,
-        character and attention to detail.
-    </p>
+        <p>
+            Leather, Made Personal.
+        </p>
 
-    <a href="#shop" class="button">SHOP COLLECTION</a>
-</div>
-
-<section id="shop">
-<div class="search-container">
-    <div class="search-box">
-        <span class="search-icon">⌕</span>
-        <input
-            type="text"
-            id="productSearch"
-            placeholder="Search our collection..."
-            oninput="searchProducts()"
-        >
     </div>
-</div>
-    <div class="title">
-        <h2>Our Collection</h2>
-        <p>Handcrafted leather goods from Jabey Leather Craft.</p>
-    </div>
-
-    <div class="products">
-
-    <div class="product">
-        <div class="product-image">
-            <img src="IMG_1475.jpeg" alt="Classic Leather Wallet">
-        </div>
-
-        <h3>Classic Leather Wallet</h3>
-
-        <p class="price">MVR 650</p>
-
-        <a class="button" href="product.html?product=Classic%20Leather%20Wallet&price=650">
-            VIEW PRODUCT
-        </a>
-    </div>
-
-
-    <div class="product">
-        <div class="product-image">
-            <img src="IMG_1480.jpeg" alt="Minimal Card Holder">
-        </div>
-
-        <h3>Minimal Card Holder</h3>
-
-        <p class="price">MVR 350</p>
-
-        <a class="button" href="product.html?product=Minimal%20Card%20Holder&price=350">
-            VIEW PRODUCT
-        </a>
-    </div>
-
-
-    <div class="product">
-        <div class="product-image">
-            <img src="IMG_1482.jpeg" alt="Leather Key Holder">
-        </div>
-
-        <h3>Leather Key Holder</h3>
-
-        <p class="price">MVR 250</p>
-
-        <a class="button" href="product.html?product=Leather%20Key%20Holder&price=250">
-            VIEW PRODUCT
-        </a>
-    </div>
-
-
-    <div class="product">
-        <div class="product-image">
-            <img src="IMG_1484.jpeg" alt="Custom Leather Wallet">
-        </div>
-
-        <h3>Custom Leather Wallet</h3>
-
-        <p class="price">MVR 850</p>
-
-        <a class="button" href="product.html?product=Custom%20Leather%20Wallet&price=850">
-            VIEW PRODUCT
-        </a>
-    </div>
-
-</div>
 
 </section>
 
+
+<!-- NAVIGATION -->
+
+<nav class="navigation">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <span>|</span>
+
+    <a href="shop.html">
+        Shop
+    </a>
+
+    <span>|</span>
+
+    <a href="#about">
+        About
+    </a>
+
+    <span>|</span>
+
+    <a href="#custom">
+        Custom
+    </a>
+
+    <span>|</span>
+
+    <a href="cart.html">
+        Cart
+    </a>
+
+</nav>
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <h2>
+        Handcrafted Leather
+    </h2>
+
+    <p>
+        Carefully crafted leather goods made by hand in the Maldives,
+        designed for everyday use and made to last.
+    </p>
+
+</section>
+
+
+<!-- ABOUT -->
 
 <section class="about" id="about">
 
-    <div>
+    <h2>
+        About Jabey Leather Craft
+    </h2>
 
-        <h2>Made By Hand</h2>
-
-        <p>
-            Every JLC piece is made by hand,
-            from cutting and stitching to the final finishing touches.
-        </p>
-
-        <p>
-            Our goal is simple — create leather goods that look
-            better with age and become part of your everyday life.
-        </p>
-
-    </div>
+    <p>
+        Jabey Leather Craft creates handmade leather pieces
+        with a focus on craftsmanship, simplicity and individuality.
+        Every piece is carefully made by hand with attention to detail.
+    </p>
 
 </section>
 
 
-<section id="custom">
+<!-- CUSTOM -->
 
-    <div class="title">
+<section class="custom" id="custom">
 
-        <h2>Custom Orders</h2>
+    <h2>
+        Custom Orders
+    </h2>
 
-        <p>
-            Want your name, initials or a special design?
-            We can create something specifically for you.
-        </p>
-<a href="https://wa.me/9609878207" class="button">CONTACT US</a>
+    <p>
+        Looking for something made specifically for you?
+        Contact us for personalised leather products,
+        custom colours and custom designs.
+    </p>
 
-
-    </div>
+    <a
+        href="https://wa.me/9609878207"
+        class="contact-button"
+    >
+        CONTACT US
+    </a>
 
 </section>
 
+
+<!-- FOOTER -->
 
 <footer>
 
-    <h3>JABEY LEATHER CRAFT</h3>
+    <p>
+        Handcrafted in Maldives
+    </p>
 
-    <p>Handcrafted in the Maldives 🇲🇻</p>
-
-    <p>© 2026 Jabey Leather Craft</p>
+    <p>
+        © 2026 Jabey Leather Craft
+    </p>
 
 </footer>
 
 
-<script>
-
-let cart = [];
-
-function addToCart(product) {
-
-    cart.push(product);
-
-    alert(
-        product +
-        " has been added to your cart!"
-    );
-
-}
-
-
-function addToCart(product, price) {
-  cart.push({ product, price });
-  alert(product + " added to your order!");
-  showCheckout();
-}
-
-function showCheckout() {
-  let message = "YOUR ORDER\n\n";
-
-  cart.forEach((item, index) => {
-    message += (index + 1) + ". " + item.product + " - MVR " + item.price + "\n";
-  });
-
-  let total = cart.reduce((sum, item) => sum + item.price, 0);
-
-  message += "\nTotal: MVR " + total;
-  message += "\n\nName: ";
-  message += "\nPhone: ";
-  message += "\nAddress: ";
-
-  let whatsappMessage = encodeURIComponent(message);
-
-  window.open(
-    "https://wa.me/9609878207?text=" + whatsappMessage,
-    "_blank"
-  );
-}
-    
-</script>
-
-
-
-<script>
-function sendOrder(event) {
-  event.preventDefault();
-
-  const name = document.getElementById("customerName").value;
-  const phone = document.getElementById("customerPhone").value;
-  const address = document.getElementById("customerAddress").value;
-  const product = document.getElementById("orderProduct").value;
-  const quantity = document.getElementById("orderQuantity").value;
-
-  const message =
-    "NEW ORDER - JABEY LEATHER CRAFT\n\n" +
-    "Name: " + name + "\n" +
-    "Phone: " + phone + "\n" +
-    "Address: " + address + "\n" +
-    "Product: " + product + "\n" +
-    "Quantity: " + quantity;
-
-  const whatsappURL =
-    "https://wa.me/9609878207?text=" +
-    encodeURIComponent(message);
-
-  window.location.href = whatsappURL;
-}
-</script>
- <script>
-function searchProducts() {
-    const search = document.getElementById("productSearch").value.toLowerCase().trim();
-    const products = document.querySelectorAll(".products .product");
-
-    products.forEach(function(product) {
-        const name = product.querySelector("h3").textContent.toLowerCase();
-
-        if (name.includes(search)) {
-            product.style.display = "";
-        } else {
-            product.style.display = "none";
-        }
-    });
-}
-</script>
 </body>
+
 </html>
