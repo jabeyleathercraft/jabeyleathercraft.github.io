@@ -220,73 +220,56 @@
         }
 
 
-        /* =========================
-           CRAFT SECTION
-        ========================== */
+    /* =========================
+   CRAFT SECTION
+========================= */
 
-        .craft-section {
-            padding: 100px 7%;
+.craft-section {
+    background: #ebe3d9;
+    padding: 150px 30px;
+    text-align: center;
+}
 
-            background: #ebe3d9;
-        }
+.craft-inner {
+    max-width: 850px;
+    margin: 0 auto;
+}
 
+.craft-section h2 {
+    margin: 0;
+    font-size: clamp(45px, 7vw, 76px);
+    line-height: 1.05;
+    font-weight: normal;
+    letter-spacing: -2px;
+    color: #2b211b;
+}
 
-        .craft-container {
-            max-width: 1200px;
+.craft-divider {
+    width: 50px;
+    height: 1px;
+    background: #8a6040;
+    margin: 45px auto;
+}
 
-            margin: 0 auto;
+.craft-section p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #765d49;
+    font-size: 16px;
+    line-height: 2;
+}
 
-            display: grid;
+@media (max-width: 700px) {
 
-            grid-template-columns: 1fr 1fr;
+    .craft-section {
+        padding: 90px 25px;
+    }
 
-            gap: 70px;
+    .craft-section h2 {
+        font-size: 44px;
+    }
 
-            align-items: center;
-        }
-
-
-        .craft-image {
-            width: 100%;
-
-            min-height: 500px;
-
-            background-image:
-                url("IMG_1556.jpeg");
-
-            background-size: cover;
-
-            background-position: center;
-        }
-
-
-        .craft-content {
-            max-width: 520px;
-        }
-
-
-        .craft-content h2 {
-            margin: 0;
-
-            font-size: clamp(34px, 4vw, 52px);
-
-            font-weight: normal;
-
-            line-height: 1.1;
-        }
-
-
-        .craft-content p {
-            margin-top: 28px;
-
-            color: #765d49;
-
-            line-height: 1.9;
-
-            font-size: 16px;
-        }
-
-
+}
         /* =========================
            ABOUT SECTION
         ========================== */
