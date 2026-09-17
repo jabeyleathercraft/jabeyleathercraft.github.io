@@ -1,395 +1,1286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Product - Jabey Leather Craft</title>
+    <meta charset="UTF-8">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f5f2;
-      color: #222;
-    }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    header {
-      text-align: center;
-      padding: 25px 15px;
-      background: #111;
-      color: white;
-    }
+    <title>Product — Jabey Leather Craft</title>
 
-    .logo {
-      width: 120px;
-      max-width: 60%;
-      height: auto;
-    }
-header h2 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 24px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-    .product-page {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 20px;
-    }
 
-   .product-gallery {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  margin-bottom: 25px;
-}
+    <style>
 
-.product-gallery img {
-  width: 100%;
-  min-width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 8px;
-  scroll-snap-align: start;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
+        body {
+            background: #f6f2ec;
 
-    .price {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+            color: #2b211b;
 
-    .description {
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 25px;
-    }
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-top: 20px;
-      margin-bottom: 8px;
-    }
+        a {
+            color: inherit;
 
-    select,
-    input,
-    textarea {
-      width: 100%;
-      padding: 13px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      background: white;
-    }
+            text-decoration: none;
+        }
 
-    textarea {
-      height: 90px;
-      resize: vertical;
-    }
 
-    .quantity {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+        /* ==================================================
+           HEADER
+        ================================================== */
 
-    .quantity button {
-      width: 40px;
-      height: 40px;
-      border: none;
-      background: #111;
-      color: white;
-      font-size: 20px;
-      border-radius: 5px;
-    }
+        header {
+            padding: 30px 7%;
 
-    .quantity span {
-      font-size: 20px;
-      font-weight: bold;
-    }
+            border-bottom: 1px solid #d9cec2;
 
-    .buy-button {
-      width: 100%;
-      padding: 16px;
-      margin-top: 30px;
-      background: #111;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+            background: #f6f2ec;
+        }
 
-    .back {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      color: #111;
-      text-decoration: none;
-    }
-    .cart-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 10px;
-    background: transparent;
-    color: #241811;
-    border: 1px solid #241811;
-    border-radius: 5px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-}
+        .header-inner {
+            display: flex;
 
-.cart-button:hover {
-    background: #241811;
-    color: white;
-}
-  </style>
+            align-items: center;
+
+            justify-content: space-between;
+
+            max-width: 1250px;
+
+            margin: auto;
+        }
+
+        .brand {
+            font-size: 24px;
+
+            letter-spacing: 5px;
+        }
+
+        .header-label {
+            color: #8a6040;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ==================================================
+           NAVIGATION
+        ================================================== */
+
+        .navigation {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 21px;
+
+            border-bottom: 1px solid #d9cec2;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .navigation a {
+            transition: opacity 0.3s ease;
+        }
+
+        .navigation a:hover {
+            opacity: 0.45;
+        }
+
+        .navigation span {
+            color: #9b8776;
+        }
+
+
+        /* ==================================================
+           PRODUCT
+        ================================================== */
+
+        .product-page {
+            max-width: 1300px;
+
+            margin: auto;
+
+            padding: 80px 7% 140px;
+        }
+
+        .back-link {
+            display: inline-block;
+
+            margin-bottom: 50px;
+
+            color: #8a6040;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .product-layout {
+            display: grid;
+
+            grid-template-columns:
+                1.15fr
+                0.85fr;
+
+            gap: 80px;
+
+            align-items: start;
+        }
+
+
+        /* ==================================================
+           PRODUCT GALLERY
+        ================================================== */
+
+        .gallery-area {
+            position: relative;
+        }
+
+        .product-gallery {
+            display: flex;
+
+            gap: 15px;
+
+            overflow-x: auto;
+
+            scroll-snap-type: x mandatory;
+
+            scrollbar-width: none;
+        }
+
+        .product-gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .product-gallery img {
+            width: 100%;
+
+            min-width: 100%;
+
+            aspect-ratio: 1 / 1.05;
+
+            object-fit: cover;
+
+            scroll-snap-align: start;
+
+            display: block;
+
+            background: #e9e0d5;
+        }
+
+        .gallery-note {
+            margin-top: 14px;
+
+            color: #9a897b;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ==================================================
+           PRODUCT INFORMATION
+        ================================================== */
+
+        .product-info {
+            position: sticky;
+
+            top: 30px;
+        }
+
+        .product-label {
+            color: #8a6040;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 30px;
+        }
+
+        #productName {
+            font-size: clamp(45px, 5vw, 72px);
+
+            line-height: 0.95;
+
+            font-weight: normal;
+
+            letter-spacing: -3px;
+        }
+
+        #productPrice {
+            margin-top: 28px;
+
+            color: #765d49;
+
+            font-size: 19px;
+
+            letter-spacing: 1px;
+        }
+
+        #productDescription {
+            max-width: 500px;
+
+            margin-top: 35px;
+
+            padding-top: 30px;
+
+            border-top: 1px solid #d9cec2;
+
+            color: #765d49;
+
+            font-size: 15px;
+
+            line-height: 2;
+        }
+
+
+        /* ==================================================
+           OPTIONS
+        ================================================== */
+
+        .options {
+            margin-top: 45px;
+        }
+
+        .option-group {
+            margin-bottom: 30px;
+        }
+
+        .option-group label {
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: #765d49;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid #cdbfb0;
+
+            background: transparent;
+
+            color: #2b211b;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+        select:focus,
+        textarea:focus {
+            border-color: #8a6040;
+        }
+
+        textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+
+        /* ==================================================
+           QUANTITY
+        ================================================== */
+
+        .quantity-row {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 17px 0;
+
+            border-top: 1px solid #d9cec2;
+
+            border-bottom: 1px solid #d9cec2;
+
+            margin-bottom: 25px;
+        }
+
+        .quantity-label {
+            color: #765d49;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .quantity-controls {
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+        }
+
+        .quantity-controls button {
+            border: none;
+
+            background: none;
+
+            cursor: pointer;
+
+            color: #2b211b;
+
+            font-size: 20px;
+
+            font-family: Georgia, serif;
+        }
+
+        #quantity {
+            min-width: 20px;
+
+            text-align: center;
+
+            font-size: 15px;
+        }
+
+
+        /* ==================================================
+           BUTTONS
+        ================================================== */
+
+        .button-group {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+
+            margin-top: 25px;
+        }
+
+        .cart-button,
+        .buy-button {
+            width: 100%;
+
+            padding: 18px 12px;
+
+            border: 1px solid #2b211b;
+
+            background: transparent;
+
+            color: #2b211b;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition: all 0.3s ease;
+        }
+
+        .buy-button {
+            background: #2b211b;
+
+            color: #f6f2ec;
+        }
+
+        .cart-button:hover {
+            background: #2b211b;
+
+            color: #f6f2ec;
+        }
+
+        .buy-button:hover {
+            background: #8a6040;
+
+            border-color: #8a6040;
+        }
+
+
+        /* ==================================================
+           PRODUCT NOTE
+        ================================================== */
+
+        .product-note {
+            margin-top: 45px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #d9cec2;
+
+            color: #8a7869;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+            padding: 80px 7% 35px;
+
+            background: #201711;
+
+            color: #b8a79a;
+        }
+
+        .footer-inner {
+            max-width: 1250px;
+
+            margin: auto;
+        }
+
+        .footer-brand {
+            margin-bottom: 55px;
+
+            color: #f4ede5;
+
+            font-size: 27px;
+
+            letter-spacing: 5px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                1fr;
+
+            gap: 40px;
+
+            padding-bottom: 50px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.12);
+        }
+
+        .footer-column h3 {
+            margin-bottom: 18px;
+
+            color: #c9a783;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+        }
+
+        .footer-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding-top: 25px;
+
+            color: #806f62;
+
+            font-size: 10px;
+        }
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 25px 20px;
+            }
+
+            .brand {
+                font-size: 19px;
+
+                letter-spacing: 3px;
+            }
+
+            .header-label {
+                font-size: 8px;
+            }
+
+            .navigation {
+                gap: 9px;
+
+                padding: 18px 10px;
+
+                font-size: 9px;
+
+                letter-spacing: 1px;
+            }
+
+            .product-page {
+                padding: 55px 20px 90px;
+            }
+
+            .back-link {
+                margin-bottom: 35px;
+            }
+
+            .product-layout {
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+            }
+
+            .product-info {
+                position: static;
+            }
+
+            #productName {
+                font-size: 54px;
+
+                letter-spacing: -2px;
+            }
+
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+            footer {
+                padding: 60px 25px 30px;
+            }
+
+            .footer-bottom {
+                display: block;
+
+                line-height: 2;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-  <header>
-    <h2>JABEY LEATHER CRAFT</h2>
-  </header>
 
-  <div class="product-page">
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
 
-    <div class="product-gallery" id="productGallery"></div>
+    <header>
 
-    <h1 id="productName">
-      Classic Leather Wallet
-    </h1>
+        <div class="header-inner">
 
-    <div class="price" id="productPrice">
-      MVR 650
-    </div>
+            <div class="brand">
+                JABEY
+            </div>
 
-    <div class="description">
-      Handcrafted leather wallet made with care and attention
-      to detail. A simple, durable and timeless everyday wallet.
-    </div>
+            <div class="header-label">
+                Leather Craft / Maldives
+            </div>
 
-    <label>Quantity</label>
+        </div>
 
-    <div class="quantity">
-      <button onclick="changeQuantity(-1)">−</button>
+    </header>
 
-      <span id="quantity">1</span>
 
-      <button onclick="changeQuantity(1)">+</button>
-    </div>
 
-    <label for="color">Choose Color</label>
+    <!-- ==================================================
+         NAVIGATION
+    ================================================== -->
 
-    <select id="color">
-      <option value="">Select a color</option>
-      <option value="Black">Black</option>
-      <option value="Brown">Brown</option>
-      <option value="Dark Brown">Dark Brown</option>
-      <option value="Tan">Tan</option>
-    </select>
+    <nav class="navigation">
 
-    <label for="customisation">
-      Customisation (Optional)
-    </label>
+        <a href="index.html">
+            Home
+        </a>
 
-    <textarea
-      id="customisation"
-      placeholder="Enter a name or initials"
-    ></textarea>
-<button class="cart-button" onclick="addToCart()">ADD TO CART</button>
-    <button
-      class="buy-button"
-      onclick="buyNow()">
-      BUY NOW
-    </button>
+        <span>|</span>
 
-    <a href="index.html" class="back">
-      ← Back to Shop
-    </a>
+        <a href="shop.html">
+            Shop
+        </a>
 
-  </div>
+        <span>|</span>
 
-  <script>
-const products = {
+        <a href="index.html#about">
+            About
+        </a>
 
-  "Classic Leather Wallet": {
-    price: 650,
-    description:
-      "Handcrafted leather wallet made with care and attention to detail. A simple, durable and timeless everyday wallet.",
-    photos: [
-      "IMG_1475.jpeg",
-      "IMG_1472.jpeg"
-    ]
-  },
+        <span>|</span>
 
-  "Minimal Card Holder": {
-    price: 350,
-    description:
-      "A slim and practical leather card holder, handcrafted for everyday use while keeping your essentials compact.",
-    photos: [
-      "IMG_1480.jpeg",
-      "IMG_1479.jpeg",
-      "IMG_1478.jpeg"
-    ]
-  },
+        <a href="index.html#custom">
+            Custom
+        </a>
 
-  "Leather Key Holder": {
-    price: 250,
-    description:
-      "A simple handcrafted leather key holder designed to keep your keys organized while adding a touch of leather craftsmanship.",
-    photos: [
-      "IMG_1482.jpeg",
-      "IMG_1483.jpeg"
-    ]
-  },
+        <span>|</span>
 
-  "Custom Leather Wallet": {
-    price: 850,
-    description:
-      "A handcrafted leather wallet that can be personalised with your name or initials, made specially for you.",
-    photos: [
-      "IMG_1484.jpeg",
-      "IMG_1485.jpeg"
-    ]
-  }
+        <a href="cart.html">
+            Cart
+        </a>
 
-};
-    let quantity = 1;
-const params = new URLSearchParams(window.location.search);
+    </nav>
 
-const productName =
-  params.get("product") || "Classic Leather Wallet";
 
-const selectedProduct =
-  products[productName] || products["Classic Leather Wallet"];
 
-document.getElementById("productName").textContent =
-  productName;
+    <!-- ==================================================
+         PRODUCT PAGE
+    ================================================== -->
 
-document.getElementById("productPrice").textContent =
-  "MVR " + selectedProduct.price;
+    <main class="product-page">
 
-document.querySelector(".description").textContent =
-  selectedProduct.description;
+        <a
+            href="shop.html"
+            class="back-link"
+        >
+            ← Back to Collection
+        </a>
 
-const gallery =
-  document.getElementById("productGallery");
 
-gallery.innerHTML = "";
+        <div class="product-layout">
 
-selectedProduct.photos.forEach(photo => {
 
-  const image = document.createElement("img");
+            <!-- ==========================================
+                 GALLERY
+            =========================================== -->
 
-  image.src = photo;
-  image.alt = productName;
+            <div class="gallery-area">
 
-  gallery.appendChild(image);
+                <div
+                    class="product-gallery"
+                    id="productGallery"
+                >
+                </div>
 
-});
-    function changeQuantity(change) {
+                <p class="gallery-note">
+                    Swipe to view details
+                </p>
 
-      quantity += change;
+            </div>
 
-      if (quantity < 1) {
-        quantity = 1;
-      }
 
-      document.getElementById("quantity").textContent =
-        quantity;
-    }
 
-    function buyNow() {
+            <!-- ==========================================
+                 PRODUCT INFORMATION
+            =========================================== -->
 
-  const color =
-    document.getElementById("color").value;
+            <div class="product-info">
 
-  const customisation =
-    document.getElementById("customisation").value;
+                <div class="product-label">
+                    Jabey Leather Craft
+                </div>
 
-  if (!color) {
-    alert("Please select a color.");
-    return;
-  }
+                <h1 id="productName">
+                    Product
+                </h1>
 
-  const product =
-    document.getElementById("productName").textContent;
+                <div id="productPrice">
+                    MVR 0
+                </div>
 
-  const price =
-    document.getElementById("productPrice")
-      .textContent
-      .replace("MVR ", "");
+                <p id="productDescription">
+                    Product description
+                </p>
 
-  const url =
-    "checkout.html" +
-    "?product=" + encodeURIComponent(product) +
-    "&price=" + encodeURIComponent(price) +
-    "&quantity=" + quantity +
-    "&color=" + encodeURIComponent(color) +
-    "&customisation=" +
-    encodeURIComponent(customisation);
 
-  window.location.href = url;
-}
+                <div class="options">
 
-function testCart() {
-  alert("ADD TO CART BUTTON IS WORKING");
-}
-function addToCart() {
 
-  const product =
-    document.getElementById("productName").textContent;
+                    <!-- COLOR -->
 
-  const price =
-    Number(
-      document.getElementById("productPrice").textContent
-        .replace("MVR ", "")
-        .trim()
-    );
+                    <div class="option-group">
 
-  const color =
-    document.getElementById("color").value;
+                        <label for="color">
+                            Leather Colour
+                        </label>
 
-  const customisation =
-    document.getElementById("customisation").value;
+                        <select id="color">
 
-  if (!color) {
-    alert("Please select a color.");
-    return;
-  }
+                            <option value="">
+                                Select a colour
+                            </option>
 
-  const cart =
-    JSON.parse(localStorage.getItem("cart") || "[]");
+                            <option value="Black">
+                                Black
+                            </option>
 
-  cart.push({
-    product: product,
-    price: price,
-    quantity: quantity,
-    color: color,
-    customisation: customisation
-  });
+                            <option value="Brown">
+                                Brown
+                            </option>
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+                            <option value="Tan">
+                                Tan
+                            </option>
 
-  alert(product + " has been added to your cart!");
-}
+                            <option value="Dark Brown">
+                                Dark Brown
+                            </option>
 
-  </script>
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- CUSTOMISATION -->
+
+                    <div class="option-group">
+
+                        <label for="customisation">
+                            Personalisation
+                        </label>
+
+                        <textarea
+                            id="customisation"
+                            placeholder="Name, initials or special request"
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- QUANTITY -->
+
+                    <div class="quantity-row">
+
+                        <div class="quantity-label">
+                            Quantity
+                        </div>
+
+                        <div class="quantity-controls">
+
+                            <button
+                                type="button"
+                                onclick="changeQuantity(-1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="quantity">
+                                1
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeQuantity(1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="button-group">
+
+                        <button
+                            class="cart-button"
+                            onclick="addToCart()"
+                        >
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-button"
+                            onclick="buyNow()"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="product-note">
+                    Each piece is handcrafted with care.
+                    Slight variations in colour, texture and
+                    stitching are part of the character of
+                    handmade leather.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                JABEY LEATHER CRAFT
+            </div>
+
+            <div class="footer-grid">
+
+                <div class="footer-column">
+
+                    <h3>Explore</h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="shop.html">
+                        Shop
+                    </a>
+
+                    <a href="index.html#about">
+                        About
+                    </a>
+
+                    <a href="index.html#custom">
+                        Custom
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>Connect</h3>
+
+                    <a href="https://wa.me/9609878207">
+                        WhatsApp
+                    </a>
+
+                    <a href="https://wa.me/9609878207">
+                        Custom Orders
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>Location</h3>
+
+                    <p>
+                        Handcrafted
+                    </p>
+
+                    <p>
+                        Maldives
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Jabey Leather Craft
+                </span>
+
+                <span>
+                    Handcrafted in Maldives
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         PRODUCT JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+
+        /* ================================================
+           PRODUCT DATA
+        ================================================= */
+
+        const products = {
+
+            "Classic Leather Wallet": {
+
+                price: 650,
+
+                description:
+                    "Handcrafted leather wallet made with care and attention to detail. A simple, durable and timeless everyday wallet.",
+
+                photos: [
+                    "IMG_1475.jpeg",
+                    "IMG_1472.jpeg"
+                ]
+
+            },
+
+
+            "Minimal Card Holder": {
+
+                price: 350,
+
+                description:
+                    "A slim and practical leather card holder, handcrafted for everyday use while keeping your essentials compact.",
+
+                photos: [
+                    "IMG_1480.jpeg",
+                    "IMG_1479.jpeg",
+                    "IMG_1478.jpeg"
+                ]
+
+            },
+
+
+            "Leather Key Holder": {
+
+                price: 250,
+
+                description:
+                    "A simple handcrafted leather key holder designed to keep your keys organized while adding a touch of leather craftsmanship.",
+
+                photos: [
+                    "IMG_1482.jpeg",
+                    "IMG_1483.jpeg"
+                ]
+
+            },
+
+
+            "Custom Leather Wallet": {
+
+                price: 850,
+
+                description:
+                    "A handcrafted leather wallet that can be personalised with your name or initials, made specially for you.",
+
+                photos: [
+                    "IMG_1484.jpeg",
+                    "IMG_1485.jpeg"
+                ]
+
+            }
+
+        };
+
+
+        let quantity = 1;
+
+
+
+        /* ================================================
+           LOAD PRODUCT
+        ================================================= */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const productName =
+            params.get("product");
+
+
+        const product =
+            products[productName];
+
+
+        if (product) {
+
+            document.getElementById(
+                "productName"
+            ).textContent =
+                productName;
+
+
+            document.getElementById(
+                "productPrice"
+            ).textContent =
+                "MVR " + product.price;
+
+
+            document.getElementById(
+                "productDescription"
+            ).textContent =
+                product.description;
+
+
+            const gallery =
+                document.getElementById(
+                    "productGallery"
+                );
+
+
+            product.photos.forEach(
+                function(photo) {
+
+                    const img =
+                        document.createElement("img");
+
+                    img.src = photo;
+
+                    img.alt = productName;
+
+                    gallery.appendChild(img);
+
+                }
+            );
+
+        }
+
+
+
+        /* ================================================
+           QUANTITY
+        ================================================= */
+
+        function changeQuantity(change) {
+
+            quantity += change;
+
+            if (quantity < 1) {
+                quantity = 1;
+            }
+
+            document.getElementById(
+                "quantity"
+            ).textContent = quantity;
+
+        }
+
+
+
+        /* ================================================
+           ADD TO CART
+        ================================================= */
+
+        function addToCart() {
+
+            const product =
+                document.getElementById(
+                    "productName"
+                ).textContent;
+
+
+            const price =
+                Number(
+                    document.getElementById(
+                        "productPrice"
+                    ).textContent
+                    .replace("MVR ", "")
+                    .trim()
+                );
+
+
+            const color =
+                document.getElementById(
+                    "color"
+                ).value;
+
+
+            const customisation =
+                document.getElementById(
+                    "customisation"
+                ).value;
+
+
+            if (!color) {
+
+                alert(
+                    "Please select a colour."
+                );
+
+                return;
+
+            }
+
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "cart"
+                    ) || "[]"
+                );
+
+
+            cart.push({
+
+                product: product,
+
+                price: price,
+
+                quantity: quantity,
+
+                color: color,
+
+                customisation: customisation
+
+            });
+
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+
+            alert(
+                product +
+                " has been added to your cart!"
+            );
+
+        }
+
+
+
+        /* ================================================
+           BUY NOW
+        ================================================= */
+
+        function buyNow() {
+
+            const color =
+                document.getElementById(
+                    "color"
+                ).value;
+
+
+            const customisation =
+                document.getElementById(
+                    "customisation"
+                ).value;
+
+
+            if (!color) {
+
+                alert(
+                    "Please select a colour."
+                );
+
+                return;
+
+            }
+
+
+            const product =
+                document.getElementById(
+                    "productName"
+                ).textContent;
+
+
+            const price =
+                document.getElementById(
+                    "productPrice"
+                ).textContent
+                .replace("MVR ", "");
+
+
+            const url =
+                "checkout.html" +
+
+                "?product=" +
+                encodeURIComponent(product) +
+
+                "&price=" +
+                encodeURIComponent(price) +
+
+                "&quantity=" +
+                quantity +
+
+                "&color=" +
+                encodeURIComponent(color) +
+
+                "&customisation=" +
+                encodeURIComponent(customisation);
+
+
+            window.location.href = url;
+
+        }
+
+
+    </script>
+
 
 </body>
+
 </html>
